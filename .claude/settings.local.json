@@ -2,7 +2,19 @@
   "permissions": {
     "allow": [
       "Bash(tree:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(cat:*)",
+      "Bash(python3:*)",
+      "Bash(xxd:*)",
+      "Bash(tar:*)",
+      "Bash(wc:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm install:*)",
+      "Bash(ls:*)",
+      "Bash(curl:*)",
+      "Bash(unzip:*)",
+      "Bash(awk:*)"
     ],
     "deny": [],
     "ask": []
