@@ -17,150 +17,57 @@ import {
   ArrowRight,
   Clock,
   DollarSign,
-  CheckCircle,
+  Video,
+  Image,
+  Music,
+  Mic,
+  Monitor,
+  Smartphone,
+  type LucideIcon,
 } from 'lucide-react';
+import { prisma } from '@/lib/prisma';
 
 export const metadata = {
   title: 'Services',
   description: 'Comprehensive video production services from concept to delivery. Branded commercials, corporate films, documentaries, and more.',
 };
 
-const services = [
-  {
-    id: 'S/01',
-    category: 'Film & Brand',
-    title: 'Branded Commercials',
-    description: 'Hero TVCs and brand films that capture attention and drive action. From 15-second spots to 3-minute narratives.',
-    icon: Film,
-    tags: ['TVC', 'Brand Film', 'Hero Commercial'],
-    investment: '₹8-25L',
-    turnaround: '4-8 weeks',
-    href: '/services/branded-commercials',
-  },
-  {
-    id: 'S/02',
-    category: 'Film & Brand',
-    title: 'Corporate Films',
-    description: 'Company stories, culture videos, and internal communications that align your team and impress stakeholders.',
-    icon: Building2,
-    tags: ['Company Story', 'Culture Video', 'Internal Comms'],
-    investment: '₹3-12L',
-    turnaround: '3-6 weeks',
-    href: '/services/corporate-films',
-  },
-  {
-    id: 'S/03',
-    category: 'Film & Brand',
-    title: 'Testimonials',
-    description: 'Authentic customer success stories that build trust and drive conversions.',
-    icon: MessageSquare,
-    tags: ['Customer Stories', 'Case Studies', 'Reviews'],
-    investment: '₹1.5-6L',
-    turnaround: '2-4 weeks',
-    href: '/services/testimonials',
-  },
-  {
-    id: 'S/04',
-    category: 'Film & Brand',
-    title: 'Documentary',
-    description: 'Long-form storytelling that explores your brand heritage, impact, or industry insights.',
-    icon: FileText,
-    tags: ['Brand Documentary', 'Impact Film', 'Heritage Story'],
-    investment: '₹10-30L',
-    turnaround: '6-12 weeks',
-    href: '/services/documentary',
-  },
-  {
-    id: 'S/05',
-    category: 'Performance & Social',
-    title: 'Social Shorts',
-    description: 'Platform-optimized content for Instagram, YouTube, and TikTok that stops the scroll.',
-    icon: Share2,
-    tags: ['Reels', 'Shorts', 'TikTok'],
-    investment: '₹50K-3L',
-    turnaround: '1-3 weeks',
-    href: '/services/social-shorts',
-  },
-  {
-    id: 'S/06',
-    category: 'Performance & Social',
-    title: 'Product Demos',
-    description: 'Clear, compelling explainers and unboxing videos that showcase your product value.',
-    icon: Package,
-    tags: ['Explainer', 'Unboxing', 'Tutorial'],
-    investment: '₹1-5L',
-    turnaround: '2-4 weeks',
-    href: '/services/product-demos',
-  },
-  {
-    id: 'S/07',
-    category: 'Performance & Social',
-    title: 'Educational',
-    description: 'E-learning content, training videos, and instructional series that engage and inform.',
-    icon: GraduationCap,
-    tags: ['E-learning', 'Training', 'Course Content'],
-    investment: '₹2-8L',
-    turnaround: '3-6 weeks',
-    href: '/services/educational',
-  },
-  {
-    id: 'S/08',
-    category: 'Performance & Social',
-    title: 'Performance Ads',
-    description: 'High-converting video ads designed for Meta, Google, and YouTube campaigns.',
-    icon: TrendingUp,
-    tags: ['Meta Ads', 'Google Ads', 'YouTube Ads'],
-    investment: '₹80K-4L',
-    turnaround: '1-3 weeks',
-    href: '/services/performance-ads',
-  },
-  {
-    id: 'S/09',
-    category: 'Adjacent Crafts',
-    title: 'Photography',
-    description: 'Product photography, brand photography, and lifestyle shoots that complement your video content.',
-    icon: Camera,
-    tags: ['Product', 'Brand', 'Lifestyle'],
-    investment: '₹40K-2L',
-    turnaround: '1-2 weeks',
-    href: '/services/photography',
-  },
-  {
-    id: 'S/10',
-    category: 'Adjacent Crafts',
-    title: 'Animation & Motion',
-    description: '2D/3D animation, motion graphics, and kinetic typography for dynamic visual storytelling.',
-    icon: Sparkles,
-    tags: ['2D/3D', 'Motion Graphics', 'Explainer'],
-    investment: '₹1.5-8L',
-    turnaround: '2-5 weeks',
-    href: '/services/animation',
-  },
-  {
-    id: 'S/11',
-    category: 'Adjacent Crafts',
-    title: 'AI Video',
-    description: 'Cutting-edge AI-powered video creation for rapid content production and personalization.',
-    icon: Wand2,
-    tags: ['AI Generated', 'Personalization', 'Synthetic'],
-    investment: '₹60K-4L',
-    turnaround: '1-2 weeks',
-    href: '/services/ai-video',
-  },
-  {
-    id: 'S/12',
-    category: 'Adjacent Crafts',
-    title: 'Post & Edit',
-    description: 'Professional editing, color grading, and post-production services for your existing footage.',
-    icon: Scissors,
-    tags: ['Editing', 'Color Grading', 'Post'],
-    investment: '₹50K-3L',
-    turnaround: '1-3 weeks',
-    href: '/services/post-production',
-  },
-];
+// Icon mapping
+const iconMap: Record<string, LucideIcon> = {
+  Film,
+  Building2,
+  MessageSquare,
+  FileText,
+  Share2,
+  Package,
+  GraduationCap,
+  TrendingUp,
+  Camera,
+  Sparkles,
+  Wand2,
+  Scissors,
+  Video,
+  Image,
+  Music,
+  Mic,
+  Monitor,
+  Smartphone,
+};
 
-const process = [
+const categoryMap: Record<string, string> = {
+  FILM_BRAND: 'Film & Brand',
+  PERFORMANCE_SOCIAL: 'Performance & Social',
+  ADJACENT_CRAFTS: 'Adjacent Crafts',
+};
+
+async function getServices() {
+  return prisma.service.findMany({
+    where: { isActive: true },
+    orderBy: { order: 'asc' },
+  });
+}
+
+const processSteps = [
   {
     step: '01',
     title: 'Discovery',
@@ -188,7 +95,8 @@ const process = [
   },
 ];
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getServices();
   const categories = ['Film & Brand', 'Performance & Social', 'Adjacent Crafts'];
 
   return (
@@ -220,30 +128,39 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      {categories.map((category) => (
-        <section
-          key={category}
-          className="relative py-20 md:py-32 bg-[var(--bg-2)] odd:bg-[var(--bg)] overflow-hidden"
-        >
-          {category === 'Film & Brand' && <div className="grain" />}
+      {categories.map((category) => {
+        const categoryKey = Object.entries(categoryMap).find(
+          ([, value]) => value === category
+        )?.[0];
+        const categoryServices = services.filter(
+          (service) => categoryMap[service.category] === category
+        );
 
-          <div className="container-tnf relative z-10">
-            <div className="label label-with-line mb-12">{category}</div>
+        if (categoryServices.length === 0) return null;
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {services
-                .filter((service) => service.category === category)
-                .map((service) => {
-                  const Icon = service.icon;
+        return (
+          <section
+            key={category}
+            className="relative py-20 md:py-32 bg-[var(--bg-2)] odd:bg-[var(--bg)] overflow-hidden"
+          >
+            {category === 'Film & Brand' && <div className="grain" />}
+
+            <div className="container-tnf relative z-10">
+              <div className="label label-with-line mb-12">{category}</div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {categoryServices.map((service, index) => {
+                  const Icon = iconMap[service.icon || 'Film'] || Film;
+                  const serviceNumber = `S/${String(service.order).padStart(2, '0')}`;
                   return (
                     <Link
                       key={service.id}
-                      href={service.href}
+                      href={`/services/${service.slug}`}
                       className="group card-base hover:border-[var(--border-strong)] transition-all duration-400 relative accent-line"
                     >
                       {/* Service Number */}
                       <div className="absolute top-8 right-8 font-mono text-[48px] font-medium text-[var(--border)] group-hover:text-[var(--gold)] transition-colors duration-400">
-                        {service.id}
+                        {serviceNumber}
                       </div>
 
                       {/* Icon */}
@@ -271,14 +188,18 @@ export default function ServicesPage() {
 
                       {/* Meta Info */}
                       <div className="flex items-center gap-6 text-[13px] text-[var(--ink-dim)]">
-                        <div className="flex items-center gap-2">
-                          <DollarSign className="w-4 h-4" />
-                          {service.investment}
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4" />
-                          {service.turnaround}
-                        </div>
+                        {service.investment && (
+                          <div className="flex items-center gap-2">
+                            <DollarSign className="w-4 h-4" />
+                            {service.investment}
+                          </div>
+                        )}
+                        {service.turnaround && (
+                          <div className="flex items-center gap-2">
+                            <Clock className="w-4 h-4" />
+                            {service.turnaround}
+                          </div>
+                        )}
                       </div>
 
                       {/* Arrow */}
@@ -288,10 +209,11 @@ export default function ServicesPage() {
                     </Link>
                   );
                 })}
+              </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        );
+      })}
 
       {/* Process Timeline */}
       <section className="relative py-20 md:py-32 bg-[var(--bg)] overflow-hidden">
@@ -308,7 +230,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid md:grid-cols-5 gap-6">
-            {process.map((item, index) => (
+            {processSteps.map((item, index) => (
               <div key={index} className="card-base text-center">
                 <div className="font-mono text-[36px] text-[var(--gold)] mb-4">
                   {item.step}

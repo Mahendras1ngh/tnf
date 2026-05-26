@@ -1098,4 +1098,162 @@ textarea.input-underline:focus {
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
   }
+  .lg\:block {
+    display: block;
+  }
+  .lg\:pl-64 {
+    padding-left: 16rem;
+  }
+  .lg\:ml-64 {
+    margin-left: 16rem;
+  }
+  .lg\:table-cell {
+    display: table-cell;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .md\:table-cell {
+    display: table-cell;
+  }
+}
+
+/* ---- Admin Panel Styles ---- */
+.admin-body {
+  padding-top: 0 !important;
+}
+
+/* Admin specific resets */
+[data-admin="true"] {
+  padding-top: 0;
+}
+
+/* Admin input styles */
+.admin-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.admin-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(232, 197, 71, 0.1);
+}
+
+.admin-input::placeholder {
+  color: var(--ink-dim);
+}
+
+/* Admin select */
+.admin-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23A3A39C' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+/* Admin textarea */
+.admin-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Admin checkbox */
+.admin-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+}
+
+.admin-checkbox:checked {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.admin-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #111;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Admin table styles */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 16px 24px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-table td {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-table tr:hover td {
+  background: var(--bg-2);
+}
+
+/* Admin badge/status */
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-badge-success {
+  background: rgba(34, 197, 94, 0.1);
+  color: rgb(34, 197, 94);
+}
+
+.admin-badge-warning {
+  background: rgba(234, 179, 8, 0.1);
+  color: rgb(234, 179, 8);
+}
+
+.admin-badge-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: rgb(239, 68, 68);
+}
+
+.admin-badge-muted {
+  background: rgba(156, 163, 175, 0.1);
+  color: rgb(156, 163, 175);
 }

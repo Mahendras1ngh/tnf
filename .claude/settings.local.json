@@ -15,7 +15,8 @@
       "Bash(curl:*)",
       "Bash(unzip:*)",
       "Bash(awk:*)",
-      "Bash(git -C /Users/mahendrasingh/Desktop/projects/thenextframe status --short)"
+      "Bash(git -C /Users/mahendrasingh/Desktop/projects/thenextframe status --short)",
+      "Bash(npx prisma migrate dev:*)"
     ],
     "deny": [],
     "ask": []

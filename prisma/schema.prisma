@@ -82,22 +82,32 @@ enum UserRole {
 // ============================================
 
 model Service {
-  id          String   @id @default(cuid())
+  id          String          @id @default(cuid())
   title       String
-  slug        String   @unique
-  description String   @db.Text
-  icon        String?  // Lucide icon name
+  slug        String          @unique
+  description String          @db.Text
+  icon        String?         // Lucide icon name
   image       String?
-  content     Json?    // Rich content blocks
-  features    String[] // Array of feature strings
-  order       Int      @default(0)
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  content     Json?           // Rich content blocks
+  features    String[]        // Array of feature strings
+  tags        String[]        // Service tags
+  category    ServiceCategory @default(FILM_BRAND)
+  investment  String?         // Price range e.g. "₹8-25L"
+  turnaround  String?         // Time range e.g. "4-8 weeks"
+  order       Int             @default(0)
+  isActive    Boolean         @default(true)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
 
   portfolioItems PortfolioItem[]
 
   @@map("services")
+}
+
+enum ServiceCategory {
+  FILM_BRAND
+  PERFORMANCE_SOCIAL
+  ADJACENT_CRAFTS
 }
 
 // ============================================
