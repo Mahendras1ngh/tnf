@@ -85,7 +85,7 @@ const services = [
     id: 'S/06',
     category: 'Performance & Social',
     title: 'Product Demos',
-    description: 'Clear, compelling explainers and unboxing videos that showcase your product's value.',
+    description: 'Clear, compelling explainers and unboxing videos that showcase your product value.',
     icon: Package,
     tags: ['Explainer', 'Unboxing', 'Tutorial'],
     investment: '₹1-5L',

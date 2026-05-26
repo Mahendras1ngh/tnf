@@ -284,40 +284,40 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <a
                     href="mailto:hello@thenextframe.in"
-                    className="flex items-start gap-4 group"
+                    className="flex items-center gap-4 group p-4 rounded-lg hover:bg-[var(--surface)] transition-all duration-300"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--gold)] group-hover:bg-[var(--gold)] transition-all duration-300">
-                      <Mail className="w-5 h-5 text-[var(--ink-mute)] group-hover:text-[var(--bg)] transition-colors duration-300" />
+                    <div className="w-12 h-12 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--gold)] group-hover:bg-[var(--gold)] transition-all duration-300">
+                      <Mail className="w-5 h-5 group-hover:text-[var(--bg)] transition-colors duration-300" style={{ color: 'var(--ink)', opacity: 0.7 }} />
                     </div>
-                    <div>
-                      <div className="text-[13px] text-[var(--ink-dim)] mb-1">Email</div>
-                      <div className="text-[15px] group-hover:text-[var(--gold)] transition-colors duration-300">
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[11px] uppercase tracking-wider mb-1 font-mono" style={{ color: 'var(--ink)', opacity: 0.5 }}>Email</div>
+                      <div className="text-[15px] font-medium group-hover:text-[var(--gold)] transition-colors duration-300 truncate" style={{ color: 'var(--ink)' }}>
                         hello@thenextframe.in
                       </div>
                     </div>
                   </a>
 
-                  <a href="tel:+919876543210" className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-lg bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--gold)] group-hover:bg-[var(--gold)] transition-all duration-300">
-                      <Phone className="w-5 h-5 text-[var(--ink-mute)] group-hover:text-[var(--bg)] transition-colors duration-300" />
+                  <a href="tel:+919876543210" className="flex items-center gap-4 group p-4 rounded-lg hover:bg-[var(--surface)] transition-all duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--gold)] group-hover:bg-[var(--gold)] transition-all duration-300">
+                      <Phone className="w-5 h-5 group-hover:text-[var(--bg)] transition-colors duration-300" style={{ color: 'var(--ink)', opacity: 0.7 }} />
                     </div>
-                    <div>
-                      <div className="text-[13px] text-[var(--ink-dim)] mb-1">Phone</div>
-                      <div className="text-[15px] group-hover:text-[var(--gold)] transition-colors duration-300">
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[11px] uppercase tracking-wider mb-1 font-mono" style={{ color: 'var(--ink)', opacity: 0.5 }}>Phone</div>
+                      <div className="text-[15px] font-medium group-hover:text-[var(--gold)] transition-colors duration-300" style={{ color: 'var(--ink)' }}>
                         +91 98765 43210
                       </div>
                     </div>
                   </a>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-[var(--ink-mute)]" />
+                  <div className="flex items-center gap-4 p-4 rounded-lg">
+                    <div className="w-12 h-12 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5" style={{ color: 'var(--ink)', opacity: 0.7 }} />
                     </div>
-                    <div>
-                      <div className="text-[13px] text-[var(--ink-dim)] mb-1">
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[11px] uppercase tracking-wider mb-1 font-mono" style={{ color: 'var(--ink)', opacity: 0.5 }}>
                         Office
                       </div>
-                      <div className="text-[15px]">
+                      <div className="text-[15px] font-medium" style={{ color: 'var(--ink)' }}>
                         New Delhi, India
                       </div>
                     </div>

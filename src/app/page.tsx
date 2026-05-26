@@ -134,15 +134,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-center wrap-wide" style={{ padding: '0 40px' }}>
-            <div className="eyebrow-line">A Video Production House · Est. 2015 — Delhi, India</div>
+          <div className="hero-center wrap-wide" style={{ padding: '0 40px', maxWidth: '1200px', margin: '0 auto' }}>
+            <div className="eyebrow-line">A Video Production House · Est. 2015 — Delhi</div>
             <h1 className="hero-title" style={{
               fontFamily: '"Instrument Serif", serif',
-              fontSize: 'clamp(70px, 13vw, 220px)',
-              lineHeight: 0.9,
-              letterSpacing: '-0.035em',
+              fontSize: 'clamp(48px, 9vw, 140px)',
+              lineHeight: 0.95,
+              letterSpacing: '-0.03em',
               color: 'var(--ink)',
               overflow: 'hidden',
+              marginTop: '28px',
             }}>
               <span className="line l1" style={{ overflow: 'hidden', display: 'block' }}>
                 <span className="word" style={{ display: 'inline-block', transform: 'translateY(110%)', animation: 'word-up 1.2s 1.3s var(--ease-out) forwards' }}>Framing</span>
@@ -155,10 +156,10 @@ export default function Home() {
                 <span className="word" style={{ display: 'inline-block', transform: 'translateY(110%)', animation: 'word-up 1.2s 1.7s var(--ease-out) forwards', fontStyle: 'italic', color: 'var(--gold)' }}>frame.</span>
               </span>
             </h1>
-            <p className="hero-sub">
-              We are a Delhi-based video production & branding studio crafting cinematic commercials, corporate films and scroll-stopping short-form for brands that refuse to blend in.
+            <p className="hero-sub" style={{ marginTop: '24px' }}>
+              Delhi-based video production studio crafting cinematic commercials, corporate films and scroll-stopping content for brands that refuse to blend in.
             </p>
-            <div className="hero-ctas">
+            <div className="hero-ctas" style={{ marginTop: '32px' }}>
               <Link className="btn btn-gold" href="/work" data-magnetic="">
                 View our work <span className="btn-arrow"></span>
               </Link>
@@ -221,9 +222,9 @@ export default function Home() {
           background: var(--gold);
         }
         .hero-sub {
-          max-width: 52ch;
-          font-size: 18px;
-          line-height: 1.5;
+          max-width: 56ch;
+          font-size: 19px;
+          line-height: 1.6;
           color: var(--ink-mute);
           opacity: 0;
           animation: fade-up 1s 2s var(--ease-out) forwards;
@@ -234,6 +235,7 @@ export default function Home() {
           flex-wrap: wrap;
           opacity: 0;
           animation: fade-up 1s 2.2s var(--ease-out) forwards;
+          max-width: 100%;
         }
         .hero-bottom {
           display: grid;
@@ -666,7 +668,7 @@ export default function Home() {
         <div className="cta-inner wrap">
           <span className="cta-phone reveal">Call direct · +91 9888 715 815</span>
           <h2 className="cta-title reveal delay-1">Let's create something <span className="italic">extraordinary.</span></h2>
-          <p className="cta-sub reveal delay-2">Ready to tell your story? We're one conversation — and about six espresso shots — away from a shot list that'll make your competitors nervous.</p>
+          <p className="cta-sub reveal delay-2">Ready to tell your story? We're one conversation away from a shot list that'll make your competitors nervous.</p>
           <div className="cta-ctas reveal delay-3">
             <Link className="btn btn-gold" href="/contact" data-magnetic="">
               Start a project <span className="btn-arrow"></span>

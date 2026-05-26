@@ -5,7 +5,8 @@ import { Award, Users, Video, Target } from 'lucide-react';
 
 export const metadata = {
   title: 'About Us',
-  description: 'Learn about The Next Frame, our story, philosophy, and the team behind award-winning video production.',
+  description:
+    'Learn about The Next Frame, our story, philosophy, and the team behind award-winning video production.',
 };
 
 const philosophy = [
@@ -71,77 +72,145 @@ const awards = [
 
 export default function AboutPage() {
   return (
-    <main className="relative">
+    <main className='relative'>
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-[var(--bg)]">
-        <div className="grain" />
-        <div className="vignette" />
+      <section
+        style={{
+          position: 'relative',
+          minHeight: '50vh',
+          display: 'flex',
+          alignItems: 'center',
+          overflow: 'hidden',
+          background: 'var(--bg)',
+        }}
+      >
+        <div className='grain' />
+        <div className='vignette' />
 
-        <div className="container-tnf relative z-10 py-20">
-          <div className="max-w-4xl">
-            <div className="label label-with-line mb-6">Est. 2015, Delhi</div>
-            <h1 className="display-lg mb-8">
-              We Turn <span className="italic text-[var(--gold)]">Ideas</span> Into Films
-            </h1>
-            <p className="lede max-w-2xl">
-              Since 2015, The Next Frame has been Delhi's trusted partner for
-              cinematic brand storytelling. From Fortune 500 companies to
-              ambitious startups, we craft video content that moves audiences
-              and drives results.
-            </p>
+        <div
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            padding: '80px 32px',
+            width: '100%',
+            position: 'relative',
+            zIndex: 10,
+            textAlign: 'center',
+          }}
+        >
+          <div className='label' style={{ justifyContent: 'center', marginBottom: '20px' }}>
+            Est. 2015, Delhi
           </div>
+          <h1
+            className='display-lg'
+            style={{ marginBottom: '24px' }}
+          >
+            We Turn <span className='italic'>Ideas</span> Into Films
+          </h1>
+          <p
+            style={{
+              fontSize: '20px',
+              lineHeight: 1.6,
+              color: 'var(--ink-mute)',
+              maxWidth: '600px',
+              margin: '0 auto',
+            }}
+          >
+            Since 2015, The Next Frame has been Delhi's trusted partner for cinematic brand storytelling that moves audiences and drives results.
+          </p>
         </div>
       </section>
 
       {/* Editorial Story Section */}
-      <section className="relative py-20 md:py-32 bg-[var(--bg-2)] overflow-hidden">
-        <div className="grain" />
+      <section
+        style={{
+          position: 'relative',
+          padding: '100px 0',
+          background: 'var(--bg-2)',
+          overflow: 'hidden',
+        }}
+      >
+        <div className='grain' />
 
-        <div className="container-tnf container-narrow relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="aspect-portrait rounded-lg overflow-hidden bg-[var(--surface)] border border-[var(--border)]">
-                <Image
-                  src="/assets/film-equipment-director-chair.png"
-                  alt="Behind the scenes"
-                  width={600}
-                  height={800}
-                  className="object-cover w-full h-full"
-                />
-              </div>
+        <div
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            padding: '0 32px',
+            position: 'relative',
+            zIndex: 10,
+          }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+              gap: '60px',
+              alignItems: 'center',
+            }}
+          >
+            <div
+              style={{
+                aspectRatio: '1',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                border: '1px solid var(--border)',
+              }}
+            >
+              <Image
+                src='/assets/film-equipment-director-chair.png'
+                alt='Behind the scenes'
+                width={600}
+                height={600}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+              />
             </div>
 
             <div>
-              <div className="label mb-4">Our Story</div>
-              <h2 className="display-sm mb-6">Born from a Simple Belief</h2>
+              <div className='label' style={{ marginBottom: '16px' }}>Our Story</div>
+              <h2
+                style={{
+                  fontFamily: '"Instrument Serif", Georgia, serif',
+                  fontSize: 'clamp(32px, 4vw, 48px)',
+                  lineHeight: 1.1,
+                  marginBottom: '28px',
+                  color: 'var(--ink)',
+                }}
+              >
+                Born from a Simple Belief
+              </h2>
 
-              <div className="space-y-4 text-[17px] leading-relaxed text-[var(--ink-mute)]">
-                <p className="drop-cap">
-                  In 2015, founder Rajesh Kumar saw a gap in the Indian video
-                  production landscape. Brands wanted cinematic quality, but
-                  most agencies offered templated solutions. TNF was founded to
-                  bridge that divide.
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <p
+                  style={{
+                    fontSize: '17px',
+                    lineHeight: 1.7,
+                    color: 'var(--ink-mute)',
+                  }}
+                >
+                  In 2015, founder Rajesh Kumar saw a gap in the Indian video production landscape. Brands wanted cinematic quality, but most agencies offered templated solutions. TNF was founded to bridge that divide.
                 </p>
 
-                <p>
-                  We started with a single camera, a small team, and an
-                  unwavering commitment to craft. Our first client was a Delhi
-                  tech startup launching their Series A. The brand film we
-                  created helped them close ₹50 crore in funding.
+                <p
+                  style={{
+                    fontSize: '17px',
+                    lineHeight: 1.7,
+                    color: 'var(--ink-mute)',
+                  }}
+                >
+                  We started with a single camera, a small team, and an unwavering commitment to craft. Our first client was a Delhi tech startup launching their Series A. The brand film we created helped them close ₹50 crore in funding.
                 </p>
 
-                <p>
-                  Word spread. Within three years, we'd worked with over 150
-                  clients across India, won our first international award, and
-                  built a reputation for exceeding expectations.
-                </p>
-
-                <p>
-                  Today, we're a 20-person team with a state-of-the-art studio
-                  in Delhi. But we've never lost sight of what made us
-                  different: treating every project like it's our own.
+                <p
+                  style={{
+                    fontSize: '17px',
+                    lineHeight: 1.7,
+                    color: 'var(--ink-mute)',
+                  }}
+                >
+                  Today, we're a 20-person team with a state-of-the-art studio in Delhi. But we've never lost sight of what made us different: treating every project like it's our own.
                 </p>
               </div>
             </div>
@@ -150,34 +219,102 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy Triptych */}
-      <section className="relative py-20 md:py-32 bg-[var(--bg)] overflow-hidden">
-        <div className="container-tnf relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="label mb-4">Our Philosophy</div>
-            <h2 className="display-md mb-6">
-              How We <span className="italic text-[var(--gold)]">Think</span>
+      <section
+        style={{
+          position: 'relative',
+          padding: '100px 0',
+          background: 'var(--bg)',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            padding: '0 32px',
+            position: 'relative',
+            zIndex: 10,
+          }}
+        >
+          <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 60px' }}>
+            <div className='label' style={{ justifyContent: 'center', marginBottom: '16px' }}>
+              Our Philosophy
+            </div>
+            <h2
+              style={{
+                fontFamily: '"Instrument Serif", Georgia, serif',
+                fontSize: 'clamp(36px, 5vw, 56px)',
+                lineHeight: 1.05,
+                marginBottom: '20px',
+                color: 'var(--ink)',
+              }}
+            >
+              How We <span className='italic'>Think</span>
             </h2>
-            <p className="lede">
-              Three principles that guide every decision we make, from concept
-              to final delivery.
+            <p
+              style={{
+                fontSize: '18px',
+                lineHeight: 1.6,
+                color: 'var(--ink-mute)',
+              }}
+            >
+              Three principles that guide every decision we make.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '32px',
+            }}
+          >
             {philosophy.map((item, index) => {
               const Icon = item.icon;
               return (
                 <div
                   key={index}
-                  className="card-hover text-center relative overflow-hidden"
+                  style={{
+                    background: 'var(--surface)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '16px',
+                    padding: '40px 32px',
+                    textAlign: 'center',
+                    transition: 'all 0.3s ease',
+                  }}
                 >
-                  <div className="mb-6 flex justify-center">
-                    <div className="w-16 h-16 rounded-full bg-[var(--gold)]/10 border border-[var(--gold)]/30 flex items-center justify-center">
-                      <Icon className="w-8 h-8 text-[var(--gold)]" />
-                    </div>
+                  <div
+                    style={{
+                      width: '64px',
+                      height: '64px',
+                      borderRadius: '50%',
+                      background: 'rgba(232, 197, 71, 0.1)',
+                      border: '1px solid rgba(232, 197, 71, 0.3)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      margin: '0 auto 24px',
+                    }}
+                  >
+                    <Icon style={{ width: '28px', height: '28px', color: 'var(--gold)' }} />
                   </div>
-                  <h3 className="font-display text-[22px] mb-4">{item.title}</h3>
-                  <p className="text-[15px] text-[var(--ink-mute)] leading-relaxed">
+                  <h3
+                    style={{
+                      fontFamily: '"Instrument Serif", Georgia, serif',
+                      fontSize: '22px',
+                      marginBottom: '12px',
+                      color: 'var(--ink)',
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: '15px',
+                      lineHeight: 1.6,
+                      color: 'var(--ink-mute)',
+                    }}
+                  >
                     {item.description}
                   </p>
                 </div>
@@ -188,47 +325,117 @@ export default function AboutPage() {
       </section>
 
       {/* Team Grid */}
-      <section className="relative py-20 md:py-32 bg-[var(--bg-2)] overflow-hidden">
-        <div className="grain" />
+      <section
+        style={{
+          position: 'relative',
+          padding: '100px 0',
+          background: 'var(--bg-2)',
+          overflow: 'hidden',
+        }}
+      >
+        <div className='grain' />
 
-        <div className="container-tnf relative z-10">
-          <div className="max-w-3xl mb-16">
-            <div className="label label-with-line mb-4">The Team</div>
-            <h2 className="display-md mb-6">
-              Meet the <span className="italic text-[var(--gold)]">Makers</span>
+        <div
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            padding: '0 32px',
+            position: 'relative',
+            zIndex: 10,
+          }}
+        >
+          <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 60px' }}>
+            <div className='label' style={{ justifyContent: 'center', marginBottom: '16px' }}>
+              The Team
+            </div>
+            <h2
+              style={{
+                fontFamily: '"Instrument Serif", Georgia, serif',
+                fontSize: 'clamp(36px, 5vw, 56px)',
+                lineHeight: 1.05,
+                marginBottom: '20px',
+                color: 'var(--ink)',
+              }}
+            >
+              Meet the <span className='italic'>Makers</span>
             </h2>
-            <p className="lede">
-              A diverse team of directors, cinematographers, editors, and
-              strategists united by a passion for storytelling.
+            <p
+              style={{
+                fontSize: '18px',
+                lineHeight: 1.6,
+                color: 'var(--ink-mute)',
+              }}
+            >
+              A diverse team united by a passion for storytelling.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '24px',
+              maxWidth: '900px',
+              margin: '0 auto',
+            }}
+          >
             {team.map((member, index) => (
               <div
                 key={index}
-                className="group relative aspect-portrait rounded-lg overflow-hidden bg-gradient-to-br from-[var(--surface)] to-[var(--bg)] border border-[var(--border)] hover:border-[var(--border-strong)] transition-all duration-400 cursor-pointer"
+                style={{
+                  position: 'relative',
+                  aspectRatio: '3/4',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  border: '1px solid var(--border)',
+                  cursor: 'pointer',
+                }}
+                className='group'
               >
-                {/* Placeholder gradient (awaiting real photos) */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/10 to-[var(--red)]/10" />
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-[var(--bg)]/95 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-center justify-center p-8">
-                  <div className="text-center">
-                    <h3 className="font-display text-[20px] mb-2 text-[var(--gold)]">
-                      {member.name}
-                    </h3>
-                    <div className="label text-[10px] mb-4">{member.role}</div>
-                    <p className="text-[14px] text-[var(--ink-mute)]">
-                      {member.bio}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Default State */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[var(--bg)] to-transparent">
-                  <h3 className="font-display text-[18px] mb-1">{member.name}</h3>
-                  <div className="text-[13px] text-[var(--ink-dim)]">{member.role}</div>
+                <Image
+                  src='/assets/profile.jpg'
+                  alt={member.name}
+                  width={300}
+                  height={400}
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: '24px 20px',
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontFamily: '"Instrument Serif", Georgia, serif',
+                      fontSize: '18px',
+                      color: '#fff',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    {member.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: '"Geist Mono", monospace',
+                      fontSize: '10px',
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      color: 'var(--gold)',
+                    }}
+                  >
+                    {member.role}
+                  </p>
                 </div>
               </div>
             ))}
@@ -237,45 +444,116 @@ export default function AboutPage() {
       </section>
 
       {/* Awards Section */}
-      <section className="relative py-20 md:py-32 bg-[var(--bg)] overflow-hidden">
-        <div className="container-tnf relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="label mb-4">Recognition</div>
-            <h2 className="display-md mb-12">
-              Award-Winning <span className="italic text-[var(--gold)]">Excellence</span>
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {awards.map((award, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 p-6 rounded-lg border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--gold)] transition-colors duration-300"
-                >
-                  <Award className="w-8 h-8 text-[var(--gold)] flex-shrink-0" />
-                  <span className="text-[15px] text-left">{award}</span>
-                </div>
-              ))}
+      <section
+        style={{
+          position: 'relative',
+          padding: '100px 0',
+          background: 'var(--bg)',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '900px',
+            margin: '0 auto',
+            padding: '0 32px',
+            position: 'relative',
+            zIndex: 10,
+          }}
+        >
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className='label' style={{ justifyContent: 'center', marginBottom: '16px' }}>
+              Recognition
             </div>
+            <h2
+              style={{
+                fontFamily: '"Instrument Serif", Georgia, serif',
+                fontSize: 'clamp(36px, 5vw, 56px)',
+                lineHeight: 1.05,
+                color: 'var(--ink)',
+              }}
+            >
+              Award-Winning <span className='italic'>Excellence</span>
+            </h2>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '16px',
+            }}
+          >
+            {awards.map((award, index) => (
+              <div
+                key={index}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '16px',
+                  padding: '24px',
+                  borderRadius: '12px',
+                  border: '1px solid var(--border)',
+                  background: 'var(--surface)',
+                  transition: 'border-color 0.3s ease',
+                }}
+              >
+                <Award style={{ width: '24px', height: '24px', color: 'var(--gold)', flexShrink: 0 }} />
+                <span style={{ fontSize: '15px', color: 'var(--ink)' }}>{award}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* BTS Cinematic Frame */}
-      <section className="relative py-20 md:py-32 bg-[var(--bg-2)] overflow-hidden">
-        <div className="grain" />
+      <section
+        style={{
+          position: 'relative',
+          padding: '80px 0 100px',
+          background: 'var(--bg-2)',
+          overflow: 'hidden',
+        }}
+      >
+        <div className='grain' />
 
-        <div className="container-tnf relative z-10">
-          <div className="aspect-cinema rounded-lg overflow-hidden bg-[var(--surface)] border border-[var(--border-strong)]">
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '0 32px',
+            position: 'relative',
+            zIndex: 10,
+          }}
+        >
+          <div
+            style={{
+              aspectRatio: '2.35/1',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              border: '1px solid var(--border)',
+            }}
+          >
             <Image
-              src="/assets/movie-production-clapperboard.png"
-              alt="Behind the scenes"
+              src='/assets/movie-production-clapperboard.png'
+              alt='Behind the scenes'
               width={1920}
               height={823}
-              className="object-cover w-full h-full"
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
             />
           </div>
-          <div className="text-center mt-6">
-            <div className="label">Behind the Scenes — On Set in Delhi</div>
+          <div style={{ textAlign: 'center', marginTop: '24px' }}>
+            <span
+              style={{
+                fontFamily: '"Geist Mono", monospace',
+                fontSize: '11px',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                color: 'var(--ink-mute)',
+              }}
+            >
+              Behind the Scenes — On Set in Delhi
+            </span>
           </div>
         </div>
       </section>
