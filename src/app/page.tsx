@@ -498,7 +498,7 @@ export default function Home() {
         <div className="wrap">
           <div className="about-teaser">
             <div className="ph ph-4 reveal" style={{ aspectRatio: '4/5', backgroundImage: 'url(/assets/film-equipment-director-chair.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-              <span className="ph-tag">BTS · 2025</span>
+              <span className="ph-tag">BTS · 2026</span>
               <span className="ph-label">On set · TNF Studio</span>
             </div>
             <div className="reveal delay-1">
