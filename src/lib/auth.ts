@@ -3,18 +3,12 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { compare } from 'bcryptjs';
 import { prisma } from '@/lib/prisma';
-import type { NextAuthConfig } from 'next-auth';
+import { authConfig } from './auth.config';
 
-export const authConfig: NextAuthConfig = {
+// Full auth config with providers (for API routes, not Edge Runtime)
+const fullAuthConfig = {
+  ...authConfig,
   adapter: PrismaAdapter(prisma),
-  session: {
-    strategy: 'jwt',
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-  },
-  pages: {
-    signIn: '/admin/login',
-    error: '/admin/login',
-  },
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -55,39 +49,22 @@ export const authConfig: NextAuthConfig = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    ...authConfig.callbacks,
+    async jwt({ token, user }: { token: any; user?: any }) {
       if (user) {
         token.id = user.id;
         token.role = user.role;
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session, token }: { session: any; token: any }) {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.role = token.role as string;
       }
       return session;
     },
-    async authorized({ auth, request }) {
-      const isLoggedIn = !!auth?.user;
-      const isOnAdmin = request.nextUrl.pathname.startsWith('/admin');
-      const isOnLogin = request.nextUrl.pathname === '/admin/login';
-
-      if (isOnAdmin) {
-        if (isOnLogin) {
-          if (isLoggedIn) {
-            return Response.redirect(new URL('/admin/dashboard', request.nextUrl));
-          }
-          return true;
-        }
-        return isLoggedIn;
-      }
-
-      return true;
-    },
   },
-  trustHost: true,
 };
 
-export const { handlers, auth, signIn, signOut } = NextAuth(authConfig);
+export const { handlers, auth, signIn, signOut } = NextAuth(fullAuthConfig);

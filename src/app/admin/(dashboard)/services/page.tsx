@@ -3,6 +3,8 @@ import { Plus } from 'lucide-react';
 import Link from 'next/link';
 import { ServicesTable } from '@/components/admin/ServicesTable';
 
+export const dynamic = 'force-dynamic';
+
 async function getServices() {
   return prisma.service.findMany({
     orderBy: { order: 'asc' },

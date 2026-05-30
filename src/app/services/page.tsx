@@ -27,6 +27,8 @@ import {
 } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Services',
   description: 'Comprehensive video production services from concept to delivery. Branded commercials, corporate films, documentaries, and more.',
