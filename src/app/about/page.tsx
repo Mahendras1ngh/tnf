@@ -90,9 +90,9 @@ export default function AboutPage() {
         <div className='vignette' />
 
         <div
+          className='container-tnf'
           style={{
             maxWidth: '1100px',
-            margin: '0 auto',
             padding: '80px 32px',
             width: '100%',
             position: 'relative',
@@ -144,9 +144,10 @@ export default function AboutPage() {
           }}
         >
           <div
+            className='about-story-grid'
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
               gap: '60px',
               alignItems: 'center',
             }}
@@ -263,10 +264,11 @@ export default function AboutPage() {
           </div>
 
           <div
+            className='philosophy-grid'
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '32px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+              gap: '24px',
             }}
           >
             {philosophy.map((item, index) => {
@@ -371,10 +373,11 @@ export default function AboutPage() {
           </div>
 
           <div
+            className='team-grid'
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '24px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))',
+              gap: '16px',
               maxWidth: '900px',
               margin: '0 auto',
             }}
@@ -478,9 +481,10 @@ export default function AboutPage() {
           </div>
 
           <div
+            className='awards-grid'
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               gap: '16px',
             }}
           >
