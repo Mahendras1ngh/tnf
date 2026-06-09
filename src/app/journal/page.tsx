@@ -10,6 +10,7 @@ export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: 'Journal | The Next Frame',
   description: 'Insights, behind-the-scenes stories, and industry knowledge from The Next Frame video production studio.',
+  alternates: { canonical: '/journal' },
   openGraph: {
     title: 'Journal | The Next Frame',
     description: 'Insights, behind-the-scenes stories, and industry knowledge from The Next Frame video production studio.',
@@ -55,17 +56,17 @@ export default async function JournalPage() {
         <div className='grain' />
         <div className='vignette' />
 
-        <div className='container-tnf relative z-10 py-20'>
-          <div className='max-w-3xl'>
-            <div className='label label-with-line mb-6'>Journal</div>
-            <h1 className='display-lg mb-6'>
-              Stories, Insights & <span className='italic'>Behind the Lens</span>
-            </h1>
-            <p className='lede'>
-              Dive into the world of video production. From industry trends to
-              behind-the-scenes stories, we share everything we learn along the way.
-            </p>
+        <div className='max-w-[1100px] mx-auto px-8 relative z-10 py-20 text-center'>
+          <div className='label mb-6' style={{ justifyContent: 'center' }}>
+            Journal
           </div>
+          <h1 className='display-lg mb-6'>
+            Stories, Insights & <span className='italic'>Behind the Lens</span>
+          </h1>
+          <p className='lede mx-auto' style={{ maxWidth: '620px' }}>
+            Dive into the world of video production. From industry trends to
+            behind-the-scenes stories, we share everything we learn along the way.
+          </p>
         </div>
       </section>
 
@@ -76,7 +77,7 @@ export default async function JournalPage() {
           style={{ background: 'var(--bg-2)' }}
         >
           <div className='grain' />
-          <div className='container-tnf relative z-10'>
+          <div className='max-w-[1100px] mx-auto px-8 relative z-10'>
             <Link
               href={`/journal/${featuredPost.slug}`}
               className='group block'
@@ -170,7 +171,7 @@ export default async function JournalPage() {
 
       {/* Blog Grid */}
       <section className='section-pad' style={{ background: 'var(--bg)' }}>
-        <div className='container-tnf'>
+        <div className='max-w-[1100px] mx-auto px-8'>
           {regularPosts.length > 0 ? (
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
               {regularPosts.map((post) => (

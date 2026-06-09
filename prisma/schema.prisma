@@ -82,22 +82,26 @@ enum UserRole {
 // ============================================
 
 model Service {
-  id          String          @id @default(cuid())
-  title       String
-  slug        String          @unique
-  description String          @db.Text
-  icon        String?         // Lucide icon name
-  image       String?
-  content     Json?           // Rich content blocks
-  features    String[]        // Array of feature strings
-  tags        String[]        // Service tags
-  category    ServiceCategory @default(FILM_BRAND)
-  investment  String?         // Price range e.g. "₹8-25L"
-  turnaround  String?         // Time range e.g. "4-8 weeks"
-  order       Int             @default(0)
-  isActive    Boolean         @default(true)
-  createdAt   DateTime        @default(now())
-  updatedAt   DateTime        @updatedAt
+  id              String          @id @default(cuid())
+  title           String
+  slug            String          @unique
+  description     String          @db.Text
+  icon            String?         // Lucide icon name
+  image           String?
+  content         Json?           // Rich content blocks (intro, sections, faqs)
+  features        String[]        // Array of feature strings
+  tags            String[]        // Service tags
+  category        ServiceCategory @default(FILM_BRAND)
+  investment      String?         // Price range e.g. "₹8-25L"
+  turnaround      String?         // Time range e.g. "4-8 weeks"
+  metaTitle       String?         // SEO <title>
+  metaDescription String?         @db.Text // SEO meta description
+  heroSubtitle    String?         @db.Text // Short hero intro line
+  order           Int             @default(0)
+  isActive        Boolean         @default(true)
+  isListed        Boolean         @default(true) // Show in main /services grid (false = SEO landing only)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
 
   portfolioItems PortfolioItem[]
 

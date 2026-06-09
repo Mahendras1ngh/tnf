@@ -1,0 +1,49 @@
+{
+  "slug": "product-demo-launch-videos",
+  "title": "Product Demo & Launch Videos",
+  "metaTitle": "Product Demo & Launch Video Production | The Next Frame",
+  "metaDescription": "We produce product demo and launch videos that turn curiosity into excitement and action. Explainer demos, launch films, feature highlights and more.",
+  "heroSubtitle": "When you're introducing something new, you don't just want them to look at it—you want them to experience it. At The Next Frame, we produce product demo and launch videos that convert curiosity into excitement and excitement into action.",
+  "tags": ["product demo", "launch video", "explainer demo", "feature highlight", "campaign edits"],
+  "category": "FILM_BRAND",
+  "icon": "Package",
+  "features": [
+    "Explainer Demos",
+    "Launch Films",
+    "Feature Highlights",
+    "How-To Tutorials",
+    "Campaign Edits"
+  ],
+  "content": {
+    "intro": "When you're introducing something new, you don't just want them to look at it—you want them to experience it. At The Next Frame, we produce product demo and launch videos that convert curiosity into excitement and excitement into action. Whether it's a new app, gadget, fashion brand, or service, we assist you in presenting it in a way that is understandable, engaging, and memorable.",
+    "sections": [
+      {
+        "heading": "What We Do",
+        "body": "",
+        "items": [
+          "Explainer Demos – Short, playful videos illustrating how your product functions and why it's important",
+          "Launch Films – Energetic films that create buzz and capture attention at the most effective time",
+          "Feature Highlights – Tight shorts that highlight what sets your product apart",
+          "How-To Tutorials – Step-by-step visuals to teach and instruct users",
+          "Campaign Edits – Social-first video clips that go viral quickly across platforms"
+        ]
+      },
+      {
+        "heading": "Why Brands Choose Us",
+        "body": "Four key points emphasizing clarity, storytelling, production quality, and market-ready content."
+      },
+      {
+        "heading": "Ideal For",
+        "body": "",
+        "items": [
+          "New product launches",
+          "App demos",
+          "E-commerce showcases",
+          "Crowdfunding campaigns",
+          "Trade shows"
+        ]
+      }
+    ],
+    "faqs": []
+  }
+}

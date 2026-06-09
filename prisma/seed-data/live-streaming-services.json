@@ -1,0 +1,71 @@
+{
+  "slug": "live-streaming-services",
+  "title": "Professional Live Streaming Services",
+  "metaTitle": "Live Streaming Services by TNF | Capture, Connect & Inspire",
+  "metaDescription": "Professional multi-camera live streaming services for events, corporate broadcasts, and virtual or hybrid experiences that connect and inspire audiences.",
+  "heroSubtitle": "In today's fast-moving digital world, live streaming is no longer optional—it's essential. At TNF, we craft live stories that inspire, connect, and leave lasting impressions, rather than simply broadcasting events.",
+  "tags": ["live streaming", "multi-camera", "virtual events", "hybrid events", "corporate broadcast"],
+  "category": "FILM_BRAND",
+  "icon": "Monitor",
+  "features": [
+    "Event Live Streaming",
+    "Corporate Live Streaming (AGMs, product launches, town halls, training)",
+    "Virtual & Hybrid Events",
+    "Creative & Performance Streaming",
+    "Multi-camera setups and real-time switching",
+    "HD streaming with professional lighting and audio",
+    "Multi-platform delivery (YouTube, Facebook, Instagram, Zoom, private portals)",
+    "Real-time graphics and analytics"
+  ],
+  "content": {
+    "intro": "In today's fast-moving digital world, live streaming is no longer optional—it's essential. At TNF, we craft live stories that inspire, connect, and leave lasting impressions, rather than simply broadcasting events.",
+    "sections": [
+      {
+        "heading": "What Are Live Streaming Services?",
+        "body": "Professional live streaming encompasses broadcasting video and audio content in real time to audiences across platforms like YouTube, Facebook, Instagram, Zoom, or private portals. TNF's offerings include multi-camera setups, audio capture, real-time switching and graphics, HD streaming, and professional lighting."
+      },
+      {
+        "heading": "Why Professional Live Streaming Matters",
+        "body": "Poor-quality streams damage trust, so consistency and clarity are essential. Key benefits include wider audience reach, higher engagement through real-time interaction, stronger brand presence, content reuse opportunities, and measurable analytics."
+      },
+      {
+        "heading": "Live Streaming Services Offered by TNF",
+        "body": "",
+        "items": [
+          "Event Live Streaming",
+          "Corporate Live Streaming (AGMs, product launches, town halls, training)",
+          "Virtual & Hybrid Events",
+          "Creative & Performance Streaming"
+        ]
+      },
+      {
+        "heading": "What Makes TNF Different?",
+        "body": "TNF distinguishes itself through a story-first approach, experienced production teams, high-end equipment, multi-platform expertise, and attention to production detail."
+      },
+      {
+        "heading": "Industries We Serve",
+        "body": "",
+        "items": [
+          "Corporate & Business",
+          "Education & Training",
+          "Entertainment & Arts",
+          "Religious & Community Events",
+          "Startups & Entrepreneurs",
+          "Marketing & Media Agencies"
+        ]
+      },
+      {
+        "heading": "Why Brands Choose TNF",
+        "body": "",
+        "items": [
+          "Proven experience",
+          "Creative + technical balance",
+          "Reliable execution",
+          "Brand-focused storytelling",
+          "End-to-end support"
+        ]
+      }
+    ],
+    "faqs": []
+  }
+}

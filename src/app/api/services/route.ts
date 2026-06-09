@@ -41,6 +41,9 @@ export async function POST(request: NextRequest) {
       title,
       slug,
       description,
+      heroSubtitle,
+      metaTitle,
+      metaDescription,
       icon,
       image,
       content,
@@ -51,6 +54,7 @@ export async function POST(request: NextRequest) {
       turnaround,
       order,
       isActive,
+      isListed,
     } = body;
 
     // Check if slug already exists
@@ -70,16 +74,20 @@ export async function POST(request: NextRequest) {
         title,
         slug,
         description,
+        heroSubtitle: heroSubtitle || null,
+        metaTitle: metaTitle || null,
+        metaDescription: metaDescription || null,
         icon,
-        image,
+        image: image || null,
         content,
         features: features || [],
         tags: tags || [],
         category: category || 'FILM_BRAND',
-        investment,
-        turnaround,
+        investment: investment || null,
+        turnaround: turnaround || null,
         order: order || 0,
         isActive: isActive ?? true,
+        isListed: isListed ?? true,
       },
     });
 

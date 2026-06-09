@@ -1,22 +1,44 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { CONTACT } from '@/lib/site';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
+
+// Common country dial codes — India first (default).
+const COUNTRY_CODES = [
+  { code: '+91', label: 'IN +91' },
+  { code: '+1', label: 'US +1' },
+  { code: '+44', label: 'UK +44' },
+  { code: '+971', label: 'UAE +971' },
+  { code: '+61', label: 'AU +61' },
+  { code: '+65', label: 'SG +65' },
+  { code: '+49', label: 'DE +49' },
+  { code: '+33', label: 'FR +33' },
+];
+
+type FieldErrors = Partial<
+  Record<'name' | 'email' | 'phone' | 'service' | 'budget' | 'message', string>
+>;
 
 export default function ContactPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
+    countryCode: '+91',
     phone: '',
     service: '',
     budget: [] as string[],
     message: '',
+    website: '', // honeypot
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [submitError, setSubmitError] = useState('');
 
   const budgetOptions = [
     '< ₹1L',
@@ -34,33 +56,83 @@ export default function ContactPage() {
         ? prev.budget.filter((b) => b !== budget)
         : [...prev.budget, budget],
     }));
+    setErrors((prev) => ({ ...prev, budget: undefined }));
+  };
+
+  const validate = (): FieldErrors => {
+    const next: FieldErrors = {};
+    if (formData.name.trim().length < 2) {
+      next.name = 'Please enter your name';
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      next.email = 'Please enter a valid email address';
+    }
+    // Phone optional, but if filled must be a valid national number (6–14 digits)
+    const digits = formData.phone.replace(/[^\d]/g, '');
+    if (digits && !/^\d{6,14}$/.test(digits)) {
+      next.phone = 'Please enter a valid phone number';
+    }
+    if (formData.countryCode === '+91' && digits && !/^[6-9]\d{9}$/.test(digits)) {
+      next.phone = 'Enter a valid 10-digit Indian mobile number';
+    }
+    if (!formData.service) {
+      next.service = 'Please select a service';
+    }
+    if (formData.budget.length === 0) {
+      next.budget = 'Please select a budget range';
+    }
+    if (formData.message.trim().length < 10) {
+      next.message = 'Tell us a little more (min 10 characters)';
+    }
+    return next;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setSubmitError('');
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        service: '',
-        budget: [],
-        message: '',
+    const validationErrors = validate();
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const phoneDigits = formData.phone.replace(/[^\d]/g, '');
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          company: formData.company.trim(),
+          phone: phoneDigits ? `${formData.countryCode} ${phoneDigits}` : '',
+          service: formData.service,
+          budget: formData.budget.join(', '),
+          message: formData.message.trim(),
+          website: formData.website,
+        }),
       });
 
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Submission failed');
+      }
+
+      router.push('/thank-you');
+    } catch (err) {
+      setIsSubmitting(false);
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : 'Something went wrong. Please try again.'
+      );
+    }
   };
 
   const characterCount = formData.message.length;
-  const maxCharacters = 500;
+  const maxCharacters = 2000;
 
   return (
     <main className="relative">
@@ -71,17 +143,17 @@ export default function ContactPage() {
         <div className="grain" />
         <div className="vignette" />
 
-        <div className="container-tnf relative z-10 py-20">
-          <div className="max-w-4xl">
-            <div className="label label-with-line mb-6">Get In Touch</div>
-            <h1 className="display-lg mb-8">
-              Let's Create Something <span className="italic text-[var(--gold)]">Exceptional</span>
-            </h1>
-            <p className="lede max-w-2xl">
-              Ready to bring your vision to life? Fill out the form below and
-              we'll get back to you within 24 hours with a custom proposal.
-            </p>
+        <div className="max-w-[1100px] mx-auto px-8 relative z-10 py-20 text-center">
+          <div className="label mb-6" style={{ justifyContent: 'center' }}>
+            Get In Touch
           </div>
+          <h1 className="display-lg mb-8">
+            Let's Create Something <span className="italic text-[var(--gold)]">Exceptional</span>
+          </h1>
+          <p className="lede mx-auto" style={{ maxWidth: '620px' }}>
+            Ready to bring your vision to life? Fill out the form below and
+            we'll get back to you within 24 hours with a custom proposal.
+          </p>
         </div>
       </section>
 
@@ -89,7 +161,7 @@ export default function ContactPage() {
       <section className="relative py-20 md:py-32 bg-[var(--bg-2)] overflow-hidden">
         <div className="grain" />
 
-        <div className="container-tnf relative z-10">
+        <div className="max-w-[1100px] mx-auto px-8 relative z-10">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
@@ -103,14 +175,18 @@ export default function ContactPage() {
                     <input
                       type="text"
                       id="name"
-                      required
                       value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setFormData({ ...formData, name: e.target.value });
+                        setErrors({ ...errors, name: undefined });
+                      }}
                       className="input-underline"
                       placeholder="John Doe"
+                      aria-invalid={!!errors.name}
                     />
+                    {errors.name && (
+                      <p className="field-error">{errors.name}</p>
+                    )}
                   </div>
 
                   <div>
@@ -120,14 +196,18 @@ export default function ContactPage() {
                     <input
                       type="email"
                       id="email"
-                      required
                       value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setFormData({ ...formData, email: e.target.value });
+                        setErrors({ ...errors, email: undefined });
+                      }}
                       className="input-underline"
                       placeholder="john@company.com"
+                      aria-invalid={!!errors.email}
                     />
+                    {errors.email && (
+                      <p className="field-error">{errors.email}</p>
+                    )}
                   </div>
                 </div>
 
@@ -153,16 +233,38 @@ export default function ContactPage() {
                     <label htmlFor="phone" className="label text-[11px] mb-3 block">
                       Phone Number
                     </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      className="input-underline"
-                      placeholder="+91 98765 43210"
-                    />
+                    <div className="flex gap-3 items-end">
+                      <select
+                        aria-label="Country code"
+                        value={formData.countryCode}
+                        onChange={(e) =>
+                          setFormData({ ...formData, countryCode: e.target.value })
+                        }
+                        className="input-underline w-[110px] flex-shrink-0"
+                      >
+                        {COUNTRY_CODES.map((c) => (
+                          <option key={c.code} value={c.code}>
+                            {c.label}
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        type="tel"
+                        id="phone"
+                        inputMode="numeric"
+                        value={formData.phone}
+                        onChange={(e) => {
+                          setFormData({ ...formData, phone: e.target.value });
+                          setErrors({ ...errors, phone: undefined });
+                        }}
+                        className="input-underline flex-1"
+                        placeholder="98765 43210"
+                        aria-invalid={!!errors.phone}
+                      />
+                    </div>
+                    {errors.phone && (
+                      <p className="field-error">{errors.phone}</p>
+                    )}
                   </div>
                 </div>
 
@@ -173,12 +275,13 @@ export default function ContactPage() {
                   </label>
                   <select
                     id="service"
-                    required
                     value={formData.service}
-                    onChange={(e) =>
-                      setFormData({ ...formData, service: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, service: e.target.value });
+                      setErrors({ ...errors, service: undefined });
+                    }}
                     className="input-underline"
+                    aria-invalid={!!errors.service}
                   >
                     <option value="">Select a service</option>
                     <option value="branded-commercials">Branded Commercials</option>
@@ -194,6 +297,9 @@ export default function ContactPage() {
                     <option value="ai-video">AI Video</option>
                     <option value="post-production">Post & Edit</option>
                   </select>
+                  {errors.service && (
+                    <p className="field-error">{errors.service}</p>
+                  )}
                 </div>
 
                 {/* Budget Selection */}
@@ -213,6 +319,9 @@ export default function ContactPage() {
                       </button>
                     ))}
                   </div>
+                  {errors.budget && (
+                    <p className="field-error">{errors.budget}</p>
+                  )}
                 </div>
 
                 {/* Message */}
@@ -233,15 +342,34 @@ export default function ContactPage() {
                   </div>
                   <textarea
                     id="message"
-                    required
                     rows={6}
                     maxLength={maxCharacters}
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, message: e.target.value });
+                      setErrors({ ...errors, message: undefined });
+                    }}
                     className="input-underline resize-none"
                     placeholder="Tell us about your project, timeline, and any specific requirements..."
+                    aria-invalid={!!errors.message}
+                  />
+                  {errors.message && (
+                    <p className="field-error">{errors.message}</p>
+                  )}
+                </div>
+
+                {/* Honeypot — hidden from users, traps bots */}
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    type="text"
+                    id="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website}
+                    onChange={(e) =>
+                      setFormData({ ...formData, website: e.target.value })
+                    }
                   />
                 </div>
 
@@ -260,20 +388,11 @@ export default function ContactPage() {
                     </>
                   )}
                 </button>
-              </form>
 
-              {/* Success Message */}
-              {isSuccess && (
-                <div className="mt-8 p-6 rounded-lg bg-[var(--surface)] border border-[var(--gold)] flex items-center gap-4">
-                  <CheckCircle className="w-6 h-6 text-[var(--gold)] flex-shrink-0" />
-                  <div>
-                    <div className="font-display text-[18px] mb-1">Message Sent!</div>
-                    <p className="text-[14px] text-[var(--ink-mute)]">
-                      Thank you for reaching out. We'll get back to you within 24 hours.
-                    </p>
-                  </div>
-                </div>
-              )}
+                {submitError && (
+                  <p className="field-error mt-2">{submitError}</p>
+                )}
+              </form>
             </div>
 
             {/* Contact Info Sidebar */}
@@ -283,7 +402,7 @@ export default function ContactPage() {
 
                 <div className="space-y-6">
                   <a
-                    href="mailto:hello@thenextframe.in"
+                    href={`mailto:${CONTACT.email}`}
                     className="flex items-center gap-4 group p-4 rounded-lg hover:bg-[var(--surface)] transition-all duration-300"
                   >
                     <div className="w-12 h-12 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--gold)] group-hover:bg-[var(--gold)] transition-all duration-300">
@@ -292,19 +411,19 @@ export default function ContactPage() {
                     <div className="flex-1 min-w-0">
                       <div className="text-[11px] uppercase tracking-wider mb-1 font-mono" style={{ color: 'var(--ink)', opacity: 0.5 }}>Email</div>
                       <div className="text-[15px] font-medium group-hover:text-[var(--gold)] transition-colors duration-300 truncate" style={{ color: 'var(--ink)' }}>
-                        hello@thenextframe.in
+                        {CONTACT.email}
                       </div>
                     </div>
                   </a>
 
-                  <a href="tel:+919876543210" className="flex items-center gap-4 group p-4 rounded-lg hover:bg-[var(--surface)] transition-all duration-300">
+                  <a href={`tel:${CONTACT.phoneE164}`} className="flex items-center gap-4 group p-4 rounded-lg hover:bg-[var(--surface)] transition-all duration-300">
                     <div className="w-12 h-12 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--gold)] group-hover:bg-[var(--gold)] transition-all duration-300">
                       <Phone className="w-5 h-5 group-hover:text-[var(--bg)] transition-colors duration-300" style={{ color: 'var(--ink)', opacity: 0.7 }} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-[11px] uppercase tracking-wider mb-1 font-mono" style={{ color: 'var(--ink)', opacity: 0.5 }}>Phone</div>
                       <div className="text-[15px] font-medium group-hover:text-[var(--gold)] transition-colors duration-300" style={{ color: 'var(--ink)' }}>
-                        +91 98765 43210
+                        {CONTACT.phoneDisplay}
                       </div>
                     </div>
                   </a>

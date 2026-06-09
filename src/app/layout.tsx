@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Instrument_Serif } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { WhatsAppButton } from '@/components/layout/WhatsAppButton';
 import './globals.css';
 
 // Font configurations matching the handoff design
@@ -40,6 +41,9 @@ export const metadata: Metadata = {
   creator: 'The Next Frame',
   publisher: 'The Next Frame',
   metadataBase: new URL('https://thenextframe.in'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -95,6 +99,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           {children}
+          <WhatsAppButton />
         </ThemeProvider>
       </body>
     </html>

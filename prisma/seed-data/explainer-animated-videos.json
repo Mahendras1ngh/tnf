@@ -1,0 +1,55 @@
+{
+  "slug": "explainer-animated-videos",
+  "title": "Explainer & Animated Videos",
+  "metaTitle": "Explainer & Animated Videos | 2D, 3D & Motion Graphics",
+  "metaDescription": "Animated and explainer videos that distill complex concepts into simple, powerful stories. 2D & 3D animation, motion graphics, whiteboard and app demos.",
+  "heroSubtitle": "Sometimes words aren't enough. That's where animated and explainer videos come in—the ultimate solution to distill highly complex concepts into simple, powerful, and fun-telling stories.",
+  "tags": ["explainer video", "2D animation", "3D animation", "motion graphics", "whiteboard animation"],
+  "category": "FILM_BRAND",
+  "icon": "Sparkles",
+  "features": [
+    "2D & 3D Animated Explainers",
+    "Motion Graphics Videos",
+    "Product & Service Explainers",
+    "App & Software Demos",
+    "Whiteboard Animation"
+  ],
+  "content": {
+    "intro": "Sometimes words aren't enough. That's where animated and explainer videos come in—the ultimate solution to distill highly complex concepts into simple, powerful, and fun-telling stories. We at Next Frame produce animations that not only tell but captivate, delight, and persuade.",
+    "sections": [
+      {
+        "heading": "What We Do",
+        "body": "",
+        "items": [
+          "2D & 3D Animated Explainers – A brief but compelling visual narrative about any idea.",
+          "Motion Graphics Videos – Elegant designs that animate data, concepts, and processes.",
+          "Product & Service Explainers – Show people what you have and why it matters in a simplest way.",
+          "App & Software Demos – Animated step-by-step walkthroughs to boost user adoption.",
+          "Whiteboard Animation – Humorous hand-drawn style videos that engage audiences."
+        ]
+      },
+      {
+        "heading": "What Makes Us Different",
+        "body": "",
+        "items": [
+          "Clarity First – We describe even hard concepts in a clear and concise way.",
+          "Engagement-Driven – Clickable media + storytelling = higher retention.",
+          "Custom Styles – Personalized animation to fit your brand style.",
+          "Multi-Platform Compatible – Web pages, social networks, presentations, or advertising friendly."
+        ]
+      },
+      {
+        "heading": "Ideal For",
+        "body": "",
+        "items": [
+          "Product Demos & Launches",
+          "Startups Pitching Investors",
+          "App & SaaS Walkthroughs",
+          "Training & Educational Material",
+          "Brand Awareness Campaigns"
+        ]
+      }
+    ],
+    "faqs": []
+  }
+}

@@ -29,15 +29,11 @@ export default async function EditServicePage({ params }: EditServicePageProps) 
           <ArrowLeft className="w-4 h-4" />
           Back to Services
         </Link>
-        <h1 className="font-display text-2xl mb-2">Edit Service</h1>
-        <p className="text-[var(--ink-mute)]">
-          Update {service.title}
-        </p>
+        <h1 className="admin-page-title">Edit Service</h1>
+        <p className="admin-page-sub">Update {service.title}</p>
       </div>
 
-      <div className="card-base">
-        <ServiceForm service={service} />
-      </div>
+      <ServiceForm service={service} />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@/lib/auth';
-import { AdminSidebar } from '@/components/admin/AdminSidebar';
-import { AdminHeader } from '@/components/admin/AdminHeader';
+import { AdminShell } from '@/components/admin/AdminShell';
 
 export default async function AdminDashboardLayout({
   children,
@@ -14,25 +13,5 @@ export default async function AdminDashboardLayout({
     redirect('/admin/login');
   }
 
-  return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: 'var(--bg)',
-        paddingTop: 0,
-      }}
-    >
-      <AdminSidebar />
-      <div
-        style={{
-          marginLeft: 0,
-          transition: 'margin-left 0.3s ease',
-        }}
-        className="lg:ml-64"
-      >
-        <AdminHeader user={session.user} />
-        <main style={{ padding: '24px' }}>{children}</main>
-      </div>
-    </div>
-  );
+  return <AdminShell user={session.user}>{children}</AdminShell>;
 }

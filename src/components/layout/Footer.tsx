@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { CONTACT, SOCIALS } from '@/lib/site';
+import { SERVICE_MENU_FLAT } from '@/lib/services-menu';
 
 export function Footer() {
   return (
@@ -19,7 +21,12 @@ export function Footer() {
               inspire, connect, and leave lasting impressions.
             </p>
             <div className='socials' style={{ marginTop: '28px' }}>
-              <a href='#' aria-label='Instagram'>
+              <a
+                href={SOCIALS.instagram}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='Instagram'
+              >
                 <svg
                   width='16'
                   height='16'
@@ -32,7 +39,12 @@ export function Footer() {
                   <circle cx='12' cy='12' r='4' />
                 </svg>
               </a>
-              <a href='#' aria-label='YouTube'>
+              <a
+                href={SOCIALS.youtube}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='YouTube'
+              >
                 <svg
                   width='16'
                   height='16'
@@ -49,7 +61,12 @@ export function Footer() {
                   />
                 </svg>
               </a>
-              <a href='#' aria-label='LinkedIn'>
+              <a
+                href={SOCIALS.linkedin}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='LinkedIn'
+              >
                 <svg
                   width='16'
                   height='16'
@@ -62,7 +79,12 @@ export function Footer() {
                   <path d='M8 10v8M8 7v.01M12 18v-5a2 2 0 0 1 4 0v5' />
                 </svg>
               </a>
-              <a href='#' aria-label='Vimeo'>
+              <a
+                href={SOCIALS.vimeo}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='Vimeo'
+              >
                 <svg
                   width='16'
                   height='16'
@@ -81,7 +103,7 @@ export function Footer() {
             <h4>Studio</h4>
             <ul>
               <li>
-                <Link href='/'>Index</Link>
+                <Link href='/'>Home</Link>
               </li>
               <li>
                 <Link href='/about'>About</Link>
@@ -103,45 +125,27 @@ export function Footer() {
           <div>
             <h4>Services</h4>
             <ul>
+              {SERVICE_MENU_FLAT.slice(0, 8).map((item) => (
+                <li key={item.slug}>
+                  <Link href={`/services/${item.slug}`}>{item.title}</Link>
+                </li>
+              ))}
               <li>
-                <Link href='/services/branded-commercials'>
-                  Branded Commercials
-                </Link>
-              </li>
-              <li>
-                <Link href='/services#corporate'>Corporate Films</Link>
-              </li>
-              <li>
-                <Link href='/services#testimonials'>Testimonials</Link>
-              </li>
-              <li>
-                <Link href='/services#documentary'>Documentary</Link>
-              </li>
-              <li>
-                <Link href='/services#shorts'>Social Shorts</Link>
-              </li>
-              <li>
-                <Link href='/services#product'>Product Demos</Link>
-              </li>
-              <li>
-                <Link href='/services#animation'>Animation & Motion</Link>
-              </li>
-              <li>
-                <Link href='/services#ai'>AI Video</Link>
+                <Link href='/services'>All Services →</Link>
               </li>
             </ul>
           </div>
           <div>
             <h4>Studio · Delhi</h4>
             <p className='tagline'>
-              A-7, Hauz Khas Village
+              {CONTACT.address.line1}
               <br />
-              New Delhi 110016, IN
+              {CONTACT.address.line2}
               <br />
               <br />
-              +91 9888 715 815
+              <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a>
               <br />
-              hello@thenextframe.in
+              <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
             </p>
           </div>
         </div>

@@ -249,6 +249,13 @@ export default function WorkPage() {
                 <img
                   src={`https://img.youtube.com/vi/${featuredProjects[0].youtubeId}/maxresdefault.jpg`}
                   alt={featuredProjects[0].title}
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    if (!img.dataset.fallback) {
+                      img.dataset.fallback = '1';
+                      img.src = `https://img.youtube.com/vi/${featuredProjects[0].youtubeId}/hqdefault.jpg`;
+                    }
+                  }}
                   style={{
                     width: '100%',
                     height: '100%',

@@ -1,0 +1,48 @@
+{
+  "slug": "educational-e-learning-videos",
+  "title": "Educational & e-Learning Videos",
+  "metaTitle": "Educational & E-Learning Video Production | The Next Frame",
+  "metaDescription": "We produce educational and e-learning videos that distill difficult subject matter into engaging, easy-to-absorb content so learners recall, not just watch.",
+  "heroSubtitle": "Learning is most effective if it's concise, engaging, and easy to identify with. We at The Next Frame produce instruction and e-learning videos that distill difficult subject matter into engagingly dense, easy-to-absorb content–so learners don't passively watch, they recall.",
+  "tags": ["e-learning", "educational video", "corporate training", "animated explainer", "edtech"],
+  "category": "FILM_BRAND",
+  "icon": "GraduationCap",
+  "features": [
+    "Animated explainers",
+    "Corporate training videos",
+    "Academic e-learning materials",
+    "Interactive learning videos",
+    "Step-by-step tutorials"
+  ],
+  "content": {
+    "intro": "Learning is most effective if it's concise, engaging, and easy to identify with. We at The Next Frame produce instruction and e-learning videos that distill difficult subject matter into engagingly dense, easy-to-absorb content–so learners don't passively watch, they recall.",
+    "sections": [
+      {
+        "heading": "What We Do",
+        "body": "The company offers animated explainers to break down complex concepts using motion graphics, corporate training videos for workforce development, academic e-learning materials for educational institutions, interactive learning videos, and step-by-step tutorials for technical topics."
+      },
+      {
+        "heading": "Why Institutions & Brands Prefer to Partner With Us",
+        "body": "",
+        "items": [
+          "Clarity First – We simplify by making the material clear, organizing it properly, and making it easy to read.",
+          "Student-Controlled – Storytelling, drawing, and anecdotes captivate students.",
+          "Tailored Content – Designed for students, employees, or professional learners.",
+          "Scalable & Multi-Platform – Size-optimized videos intended for use on LMS sites, websites, applications, and YouTube."
+        ]
+      },
+      {
+        "heading": "Ideal For",
+        "body": "",
+        "items": [
+          "Schools, Colleges & Universities",
+          "Corporate Training Initiatives",
+          "Internet Based Courses & EdTech Platforms",
+          "Skill Development Programmes",
+          "Internal HR & Onboarding Modules"
+        ]
+      }
+    ],
+    "faqs": []
+  }
+}

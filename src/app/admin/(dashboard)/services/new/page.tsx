@@ -13,15 +13,11 @@ export default function NewServicePage() {
           <ArrowLeft className="w-4 h-4" />
           Back to Services
         </Link>
-        <h1 className="font-display text-2xl mb-2">Add New Service</h1>
-        <p className="text-[var(--ink-mute)]">
-          Create a new service offering
-        </p>
+        <h1 className="admin-page-title">Add New Service</h1>
+        <p className="admin-page-sub">Create a new service offering</p>
       </div>
 
-      <div className="card-base">
-        <ServiceForm />
-      </div>
+      <ServiceForm />
     </div>
   );
 }

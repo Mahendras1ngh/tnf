@@ -7,6 +7,7 @@ export const metadata = {
   title: 'About Us',
   description:
     'Learn about The Next Frame, our story, philosophy, and the team behind award-winning video production.',
+  alternates: { canonical: '/about' },
 };
 
 const philosophy = [

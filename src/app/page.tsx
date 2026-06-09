@@ -388,7 +388,7 @@ export default function Home() {
 
           <div className="bento">
             <article className="work w-6 reveal">
-              <div className="cover cover-1"></div>
+              <div className="cover cover-1" style={{ backgroundImage: 'url(https://img.youtube.com/vi/1Xgw_mtOMWQ/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <span className="work-index">001</span>
               <span className="work-cat">Music Video</span>
               <div className="work-meta">
@@ -400,7 +400,7 @@ export default function Home() {
               </div>
             </article>
             <article className="work w-3 reveal delay-1">
-              <div className="cover cover-2"></div>
+              <div className="cover cover-2" style={{ backgroundImage: 'url(https://img.youtube.com/vi/_XITAVNW0FM/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <span className="work-index">002</span>
               <span className="work-cat">Music</span>
               <div className="work-meta">
@@ -411,7 +411,7 @@ export default function Home() {
               </div>
             </article>
             <article className="work w-3 reveal delay-2">
-              <div className="cover cover-3"></div>
+              <div className="cover cover-3" style={{ backgroundImage: 'url(https://img.youtube.com/vi/1BaHmUmrGQU/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <span className="work-index">003</span>
               <span className="work-cat">Commercial</span>
               <div className="work-meta">
@@ -423,7 +423,7 @@ export default function Home() {
             </article>
 
             <article className="work w-4 reveal">
-              <div className="cover cover-4"></div>
+              <div className="cover cover-4" style={{ backgroundImage: 'url(https://img.youtube.com/vi/KbvPsZ4hVtg/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <span className="work-index">004</span>
               <span className="work-cat">Commercial</span>
               <div className="work-meta">
@@ -435,7 +435,7 @@ export default function Home() {
               </div>
             </article>
             <article className="work w-4 reveal delay-1">
-              <div className="cover cover-5"></div>
+              <div className="cover cover-5" style={{ backgroundImage: 'url(https://img.youtube.com/vi/nBGup9EyJHg/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <span className="work-index">005</span>
               <span className="work-cat">Commercial</span>
               <div className="work-meta">
@@ -447,7 +447,7 @@ export default function Home() {
               </div>
             </article>
             <article className="work w-4 reveal delay-2">
-              <div className="cover cover-6"></div>
+              <div className="cover cover-6" style={{ backgroundImage: 'url(https://img.youtube.com/vi/28nf-Q7p0ow/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <span className="work-index">006</span>
               <span className="work-cat">Explainer</span>
               <div className="work-meta">
@@ -460,7 +460,7 @@ export default function Home() {
             </article>
 
             <article className="work w-8 reveal">
-              <div className="cover cover-7"></div>
+              <div className="cover cover-7" style={{ backgroundImage: 'url(https://img.youtube.com/vi/wt7z6SN6B4c/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <span className="work-index">007</span>
               <span className="work-cat">Commercial</span>
               <div className="work-meta">
@@ -472,7 +472,7 @@ export default function Home() {
               </div>
             </article>
             <article className="work w-4 reveal delay-1">
-              <div className="cover cover-8"></div>
+              <div className="cover cover-8" style={{ backgroundImage: 'url(https://img.youtube.com/vi/Td95vYCmAYo/hqdefault.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <span className="work-index">008</span>
               <span className="work-cat">Commercial</span>
               <div className="work-meta">

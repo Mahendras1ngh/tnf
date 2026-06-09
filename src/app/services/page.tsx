@@ -32,6 +32,7 @@ export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Services',
   description: 'Comprehensive video production services from concept to delivery. Branded commercials, corporate films, documentaries, and more.',
+  alternates: { canonical: '/services' },
 };
 
 // Icon mapping
@@ -64,7 +65,7 @@ const categoryMap: Record<string, string> = {
 
 async function getServices() {
   return prisma.service.findMany({
-    where: { isActive: true },
+    where: { isActive: true, isListed: true },
     orderBy: { order: 'asc' },
   });
 }

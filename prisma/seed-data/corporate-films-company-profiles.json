@@ -1,0 +1,54 @@
+{
+  "slug": "corporate-films-company-profiles",
+  "title": "Corporate Films & Company Profiles",
+  "metaTitle": "Corporate Films & Company Profiles | The Next Frame",
+  "metaDescription": "We produce corporate films and company profile videos that present your brand in a way that feels real, professional, and memorable to clients and investors.",
+  "heroSubtitle": "Every Company Has a Story. Let's Tell Yours. At The Next Frame, we produce corporate films and company profile videos that present your brand in a way that feels real, professional, and memorable.",
+  "tags": ["corporate film", "company profile", "corporate storytelling", "investor video", "brand film"],
+  "category": "FILM_BRAND",
+  "icon": "Building2",
+  "features": [
+    "Company Profile Films",
+    "Corporate Storytelling",
+    "Leadership & Team Videos",
+    "Milestone & Event Films",
+    "Investor & Stakeholder Presentations"
+  ],
+  "content": {
+    "intro": "Every Company Has a Story. Let's Tell Yours. Numbers, services, and achievements are essential—but what really sets a company apart is its story, people, and purpose. At The Next Frame, we produce corporate films and company profile videos that present your brand in a way that feels real, professional, and memorable. Whether you're communicating with clients, investors, employees, or the world at large, our movies assist you to communicate not only what you do but who you are.",
+    "sections": [
+      {
+        "heading": "What We Do",
+        "body": "",
+        "items": [
+          "Company Profile Films – Present your journey, vision, and strengths in a clear, compelling manner",
+          "Corporate Storytelling – Emphasize your culture, values, and why you stand out",
+          "Leadership & Team Videos – Give your brand a face and personality to instill trust",
+          "Milestone & Event Films – Emphasize accomplishments, CSR initiatives, and company culture",
+          "Investor & Stakeholder Presentations – Showcase your company with credibility and transparency"
+        ]
+      },
+      {
+        "heading": "Why Brands Choose Us",
+        "body": "",
+        "items": [
+          "Real & Relatable – We make your company human, so your audience relates emotionally",
+          "Professional Sheen – High-definition visuals with cinematic narrative",
+          "Meant for Purpose – From investor decks to recruitment drives, we adjust the tone for your audience",
+          "End-to-End Service – We handle the whole process from scriptwriting to final cut"
+        ]
+      },
+      {
+        "heading": "Ideal For",
+        "body": "",
+        "items": [
+          "Investor Presentations & Pitching",
+          "Recruitment & HR Advertising",
+          "Annual Reports & Anniversary Films",
+          "CSR & Social Responsibility Films"
+        ]
+      }
+    ],
+    "faqs": []
+  }
+}

@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { CONTACT, SOCIALS } from '@/lib/site';
+import { SERVICE_MENU } from '@/lib/services-menu';
 
 export function Navigation() {
   const [isMegaOpen, setIsMegaOpen] = useState(false);
@@ -41,7 +43,7 @@ export function Navigation() {
 
           <div className='nav-links'>
             <Link href='/' className={pathname === '/' ? 'active' : ''}>
-              Index
+              Home
             </Link>
             <Link href='/work' className={pathname === '/work' ? 'active' : ''}>
               Work
@@ -60,166 +62,28 @@ export function Navigation() {
               </span>
               <div className='mega'>
                 <div className='wrap-wide mega-grid'>
-                  <div className='mega-col'>
-                    <h5>Film & Brand</h5>
-                    <ul>
-                      <li>
-                        <Link
-                          className='mega-link'
-                          href='/services/branded-commercials'
-                        >
-                          <span className='ico'>B</span>
-                          <span>
-                            <span className='ml-title'>Branded Commercials</span>
-                            <span className='ml-sub'>
-                              TVC · Brand Films · DTC
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className='mega-link' href='/services#corporate'>
-                          <span className='ico'>C</span>
-                          <span>
-                            <span className='ml-title'>Corporate Films</span>
-                            <span className='ml-sub'>
-                              Anthems · Manifesto · Culture
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className='mega-link' href='/services#testimonials'>
-                          <span className='ico'>T</span>
-                          <span>
-                            <span className='ml-title'>Testimonials</span>
-                            <span className='ml-sub'>
-                              Customer · Founder · Case
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className='mega-link' href='/services#documentary'>
-                          <span className='ico'>D</span>
-                          <span>
-                            <span className='ml-title'>Documentary</span>
-                            <span className='ml-sub'>
-                              Long-form · Series · Impact
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className='mega-col'>
-                    <h5>Performance & Social</h5>
-                    <ul>
-                      <li>
-                        <Link className='mega-link' href='/services#shorts'>
-                          <span className='ico'>S</span>
-                          <span>
-                            <span className='ml-title'>Social Shorts</span>
-                            <span className='ml-sub'>
-                              Reels · TikTok · Shorts
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className='mega-link' href='/services#product'>
-                          <span className='ico'>P</span>
-                          <span>
-                            <span className='ml-title'>Product Demos</span>
-                            <span className='ml-sub'>
-                              Hero shots · Tabletop · CGI
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className='mega-link' href='/services#educational'>
-                          <span className='ico'>E</span>
-                          <span>
-                            <span className='ml-title'>Educational</span>
-                            <span className='ml-sub'>
-                              EdTech · Explainers · Course
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className='mega-link' href='/services#performance'>
-                          <span className='ico'>A</span>
-                          <span>
-                            <span className='ml-title'>Performance Ads</span>
-                            <span className='ml-sub'>
-                              Meta · YouTube · Iterative
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className='mega-col'>
-                    <h5>Adjacent Crafts</h5>
-                    <ul>
-                      <li>
-                        <Link className='mega-link' href='/services#photography'>
-                          <span className='ico'>F</span>
-                          <span>
-                            <span className='ml-title'>Photography</span>
-                            <span className='ml-sub'>
-                              Editorial · Product · Stills
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className='mega-link' href='/services#animation'>
-                          <span className='ico'>M</span>
-                          <span>
-                            <span className='ml-title'>Animation & Motion</span>
-                            <span className='ml-sub'>2D · 3D · Mograph</span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className='mega-link' href='/services#ai'>
-                          <span className='ico'>I</span>
-                          <span>
-                            <span className='ml-title'>AI Video</span>
-                            <span className='ml-sub'>
-                              Hybrid pipelines · Pitches
-                            </span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className='mega-link' href='/services#post'>
-                          <span className='ico'>X</span>
-                          <span>
-                            <span className='ml-title'>Post & Edit</span>
-                            <span className='ml-sub'>Color · Sound · VFX</span>
-                          </span>
-                          <span className='ml-arrow'>→</span>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
+                  {SERVICE_MENU.map((col) => (
+                    <div className='mega-col' key={col.heading}>
+                      <h5>{col.heading}</h5>
+                      <ul>
+                        {col.items.map((item) => (
+                          <li key={item.slug}>
+                            <Link
+                              className='mega-link'
+                              href={`/services/${item.slug}`}
+                            >
+                              <span className='ico'>{item.ico}</span>
+                              <span>
+                                <span className='ml-title'>{item.title}</span>
+                                <span className='ml-sub'>{item.sub}</span>
+                              </span>
+                              <span className='ml-arrow'>→</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
 
                   <Link
                     className='mega-feature'
@@ -261,7 +125,8 @@ export function Navigation() {
           </div>
 
           <div className='nav-cta'>
-            <span
+            <a
+              href={`tel:${CONTACT.phoneE164}`}
               className='phone-text mono'
               style={{
                 fontSize: '11px',
@@ -271,8 +136,8 @@ export function Navigation() {
                 textTransform: 'uppercase',
               }}
             >
-              +91 9888 715 815
-            </span>
+              {CONTACT.phoneDisplay}
+            </a>
             <button
               className='theme-toggle'
               onClick={() => {
@@ -333,7 +198,7 @@ export function Navigation() {
               className={`mobile-menu-link ${pathname === '/' ? 'active' : ''}`}
             >
               <span className='mobile-link-number'>01</span>
-              <span className='mobile-link-text'>Index</span>
+              <span className='mobile-link-text'>Home</span>
             </Link>
             <Link
               href='/work'
@@ -368,45 +233,20 @@ export function Navigation() {
                 <Link href='/services' className='mobile-submenu-link'>
                   All Services
                 </Link>
-                <div className='mobile-submenu-category'>Film & Brand</div>
-                <Link href='/services/branded-commercials' className='mobile-submenu-link'>
-                  Branded Commercials
-                </Link>
-                <Link href='/services#corporate' className='mobile-submenu-link'>
-                  Corporate Films
-                </Link>
-                <Link href='/services#testimonials' className='mobile-submenu-link'>
-                  Testimonials
-                </Link>
-                <Link href='/services#documentary' className='mobile-submenu-link'>
-                  Documentary
-                </Link>
-                <div className='mobile-submenu-category'>Performance & Social</div>
-                <Link href='/services#shorts' className='mobile-submenu-link'>
-                  Social Shorts
-                </Link>
-                <Link href='/services#product' className='mobile-submenu-link'>
-                  Product Demos
-                </Link>
-                <Link href='/services#educational' className='mobile-submenu-link'>
-                  Educational
-                </Link>
-                <Link href='/services#performance' className='mobile-submenu-link'>
-                  Performance Ads
-                </Link>
-                <div className='mobile-submenu-category'>Adjacent Crafts</div>
-                <Link href='/services#photography' className='mobile-submenu-link'>
-                  Photography
-                </Link>
-                <Link href='/services#animation' className='mobile-submenu-link'>
-                  Animation & Motion
-                </Link>
-                <Link href='/services#ai' className='mobile-submenu-link'>
-                  AI Video
-                </Link>
-                <Link href='/services#post' className='mobile-submenu-link'>
-                  Post & Edit
-                </Link>
+                {SERVICE_MENU.map((col) => (
+                  <div key={col.heading}>
+                    <div className='mobile-submenu-category'>{col.heading}</div>
+                    {col.items.map((item) => (
+                      <Link
+                        key={item.slug}
+                        href={`/services/${item.slug}`}
+                        className='mobile-submenu-link'
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -438,31 +278,31 @@ export function Navigation() {
               Schedule a Call
               <span className='btn-arrow'></span>
             </Link>
-            <a href='tel:+919888715815' className='mobile-menu-phone'>
-              +91 9888 715 815
+            <a href={`tel:${CONTACT.phoneE164}`} className='mobile-menu-phone'>
+              {CONTACT.phoneDisplay}
             </a>
             <div className='mobile-menu-socials'>
-              <a href='https://instagram.com' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
+              <a href={SOCIALS.instagram} target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
                 <svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='1.5'>
                   <rect x='2' y='2' width='20' height='20' rx='5' ry='5'/>
                   <path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'/>
                   <line x1='17.5' y1='6.5' x2='17.51' y2='6.5'/>
                 </svg>
               </a>
-              <a href='https://youtube.com' target='_blank' rel='noopener noreferrer' aria-label='YouTube'>
+              <a href={SOCIALS.youtube} target='_blank' rel='noopener noreferrer' aria-label='YouTube'>
                 <svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='1.5'>
                   <path d='M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z'/>
                   <polygon points='9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02'/>
                 </svg>
               </a>
-              <a href='https://linkedin.com' target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'>
+              <a href={SOCIALS.linkedin} target='_blank' rel='noopener noreferrer' aria-label='LinkedIn'>
                 <svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='1.5'>
                   <path d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'/>
                   <rect x='2' y='9' width='4' height='12'/>
                   <circle cx='4' cy='4' r='2'/>
                 </svg>
               </a>
-              <a href='https://vimeo.com' target='_blank' rel='noopener noreferrer' aria-label='Vimeo'>
+              <a href={SOCIALS.vimeo} target='_blank' rel='noopener noreferrer' aria-label='Vimeo'>
                 <svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='1.5'>
                   <path d='M22 8.64c-.09 2-1.34 4.74-3.76 8.21-2.5 3.63-4.62 5.44-6.35 5.44-1.07 0-1.98-1-2.72-2.98L7.5 13.32c-.53-2-1.1-2.98-1.7-2.98-.13 0-.6.28-1.4.84L3.46 10c.88-.77 1.75-1.55 2.6-2.32 1.18-1.02 2.06-1.55 2.65-1.6 1.39-.13 2.25.82 2.57 2.86.35 2.2.59 3.57.72 4.1.4 1.82.84 2.73 1.32 2.73.37 0 .93-.59 1.68-1.77.75-1.18 1.15-2.08 1.2-2.7.11-1.03-.3-1.54-1.21-1.54-.43 0-.88.1-1.34.3.89-2.91 2.59-4.33 5.1-4.25 1.86.05 2.74 1.26 2.65 3.63z'/>
                 </svg>

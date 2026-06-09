@@ -1,0 +1,80 @@
+{
+  "slug": "video-content-creation-agency",
+  "title": "Video Content Creation Agency",
+  "metaTitle": "Video Content Creation Agency | The Next Frame",
+  "metaDescription": "The Next Frame is a video content creation agency producing branded films, social videos, explainers and more that capture attention, build trust and convert.",
+  "heroSubtitle": "In today's rapidly changing digital world, content reigns supreme—but it's video content that is the crown of crowns. Businesses that use innovative video storytelling capture attention, gain trust, and produce conversions.",
+  "tags": ["video content", "content agency", "branded content", "social media video", "video marketing"],
+  "category": "PERFORMANCE_SOCIAL",
+  "icon": "Video",
+  "features": [
+    "Branded Commercials & Ad Films",
+    "Corporate Films & Company Profiles",
+    "Corporate Photography & Visual Branding",
+    "Customer Testimonial & Case Study Videos",
+    "Educational & e-Learning Videos",
+    "Explainer & Animated Videos",
+    "Product Demo & Launch Videos",
+    "Social Media Video Creatives & Shorts"
+  ],
+  "content": {
+    "intro": "In today's rapidly changing digital world, content reigns supreme—but it's video content that is the crown of crowns. Text- and still-image-only businesses fail to connect with people, while businesses that use innovative video storytelling capture attention, gain trust, and produce conversions.",
+    "sections": [
+      {
+        "heading": "The Importance of Producing Video Material",
+        "body": "Your prospects view hours of video daily across Instagram, YouTube, LinkedIn, and other sites. To reach them, you need videos that are engaging, relevant, and optimized for each platform."
+      },
+      {
+        "heading": "Our Services for Video Making",
+        "body": "We offer a full spectrum of video content production services to help you in the journey of marketing your brand:",
+        "items": [
+          "Branded Commercials & Ad Films",
+          "Corporate Films & Company Profiles",
+          "Corporate Photography & Visual Branding",
+          "Customer Testimonial & Case Study Videos",
+          "Educational & e-Learning Videos",
+          "Explainer & Animated Videos",
+          "Product Demo & Launch Videos",
+          "Social Media Video Creatives & Shorts"
+        ]
+      },
+      {
+        "heading": "Why The Next Frame Media?",
+        "body": "Not only a production house, we are a turnkey creative agency for video production that understands digital marketing and storytelling."
+      },
+      {
+        "heading": "Industries We Service",
+        "body": "We serve a wide range of sectors.",
+        "items": [
+          "Food & Beverage",
+          "Fintech",
+          "IT",
+          "Lifestyle & Fashion",
+          "Real Estate & Hospitality"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What does a video content agency do for a living?",
+        "answer": "We write, conceptualize, produce, and edit all videos that suit your brand and advertising objectives."
+      },
+      {
+        "question": "What is most characteristic of a creative video production agency?",
+        "answer": "A creative production house dedicated to video not only manages visuals but also emphasizes storytelling, branding, and the establishment of an emotional connection."
+      },
+      {
+        "question": "Are you equipped to create content for startups and huge brands?",
+        "answer": "Yes, we serve startups and large businesses and customize content strategies to their own needs."
+      },
+      {
+        "question": "What is the cost of creating video content in India?",
+        "answer": "The price varies depending on the extent, duration, and required production. Our agency has affordable packages for every pocket."
+      },
+      {
+        "question": "Do you also enhance social media visibility for your videos?",
+        "answer": "Specifically, we ensure that your videos play smoothly on platforms such as Instagram, YouTube, and LinkedIn."
+      }
+    ]
+  }
+}
