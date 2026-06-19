@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && prisma migrate deploy && npm run db:bootstrap && next build",
+    "db:bootstrap": "ts-node prisma/bootstrap.ts",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
@@ -82,7 +83,7 @@
     "typescript": "^5.7.2"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "seed": "ts-node prisma/seed.ts"
   },
   "engines": {
     "node": ">=20.0.0"

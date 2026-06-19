@@ -10,8 +10,6 @@ import { PrismaClient, ServiceCategory } from '@prisma/client';
 import { readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 
-const prisma = new PrismaClient();
-
 const VALID_CATEGORIES: ServiceCategory[] = [
   'FILM_BRAND',
   'PERFORMANCE_SOCIAL',
@@ -35,7 +33,7 @@ interface SeedFile {
   };
 }
 
-async function main() {
+export async function seedServices(prisma: PrismaClient) {
   const dir = join(__dirname, 'seed-data');
   const files = readdirSync(dir).filter((f) => f.endsWith('.json'));
 
@@ -100,11 +98,15 @@ async function main() {
   console.log(`✅ Done. Total services in DB: ${total}`);
 }
 
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+// Standalone runner: `npx tsx prisma/seed-services.ts`
+if (require.main === module) {
+  const prisma = new PrismaClient();
+  seedServices(prisma)
+    .catch((e) => {
+      console.error(e);
+      process.exit(1);
+    })
+    .finally(async () => {
+      await prisma.$disconnect();
+    });
+}

@@ -30,6 +30,12 @@
     "target": "ES2017",
     "forceConsistentCasingInFileNames": true
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+      "moduleResolution": "node"
+    }
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",

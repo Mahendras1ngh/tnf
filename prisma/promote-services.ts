@@ -11,8 +11,6 @@
  */
 import { PrismaClient, ServiceCategory } from '@prisma/client';
 
-const prisma = new PrismaClient();
-
 // Empty placeholder services to retire from the grid (kept active, URLs alive).
 const CORE_SLUGS = [
   'branded-commercials',
@@ -45,7 +43,7 @@ const PROMOTE: { slug: string; category: ServiceCategory }[] = [
   { slug: 'video-broadcasting-live-streaming-services', category: 'ADJACENT_CRAFTS' },
 ];
 
-async function main() {
+export async function promoteServices(prisma: PrismaClient) {
   // Retire empties -> unlisted, sink to bottom.
   for (let i = 0; i < CORE_SLUGS.length; i++) {
     await prisma.service.updateMany({
@@ -69,9 +67,13 @@ async function main() {
   console.log(`✅ Listed services now: ${listed}`);
 }
 
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(() => prisma.$disconnect());
+// Standalone runner: `npx tsx prisma/promote-services.ts`
+if (require.main === module) {
+  const prisma = new PrismaClient();
+  promoteServices(prisma)
+    .catch((e) => {
+      console.error(e);
+      process.exit(1);
+    })
+    .finally(() => prisma.$disconnect());
+}
