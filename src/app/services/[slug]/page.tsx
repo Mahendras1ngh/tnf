@@ -67,13 +67,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  const services = await prisma.service.findMany({
-    where: { isActive: true },
-    select: { slug: true },
-  });
-  return services.map((s) => ({ slug: s.slug }));
-}
 
 // Shared layout constants — mirror the About page for visual consistency.
 const SERIF = '"Instrument Serif", Georgia, serif';

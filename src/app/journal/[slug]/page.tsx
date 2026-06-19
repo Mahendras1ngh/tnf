@@ -77,18 +77,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Generate static params for SSG (optional - for better performance)
-export async function generateStaticParams() {
-  const posts = await prisma.blogPost.findMany({
-    where: { published: true },
-    select: { slug: true },
-  });
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = await getBlogPost(slug);
