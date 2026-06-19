@@ -19,7 +19,11 @@
       "Bash(npx prisma migrate dev:*)",
       "Bash(npm run build:*)",
       "Bash(npm info:*)",
-      "Bash(node -e 'const{PrismaClient}=require\\('\\\\''@prisma/client'\\\\''\\);const p=new PrismaClient\\(\\);p.service.findMany\\({select:{slug:true,title:true}}\\).then\\(s=>{console.log\\('\\\\''COUNT'\\\\'',s.length\\);s.forEach\\(x=>console.log\\(x.slug\\)\\)}\\).catch\\(e=>console.log\\('\\\\''DB ERR'\\\\'',e.message\\)\\).finally\\(\\(\\)=>p.$disconnect\\(\\)\\)')"
+      "Bash(node -e 'const{PrismaClient}=require\\('\\\\''@prisma/client'\\\\''\\);const p=new PrismaClient\\(\\);p.service.findMany\\({select:{slug:true,title:true}}\\).then\\(s=>{console.log\\('\\\\''COUNT'\\\\'',s.length\\);s.forEach\\(x=>console.log\\(x.slug\\)\\)}\\).catch\\(e=>console.log\\('\\\\''DB ERR'\\\\'',e.message\\)\\).finally\\(\\(\\)=>p.$disconnect\\(\\)\\)')",
+      "Bash(npx prisma *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ],
     "deny": [],
     "ask": []
