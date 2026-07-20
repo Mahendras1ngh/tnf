@@ -174,6 +174,9 @@ export const STEPS: StepItem[] = [
 export const CASE_STUDY = {
   title: 'Real Estate Project',
   thumbnail: '/assets/corporate-boardroom-filming.png',
+  // NOTE: placeholder reel — replace with the real case-study video URL
+  // (YouTube or Vimeo) before going live.
+  videoUrl: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
   points: [
     { label: 'Objective', value: 'Increase brand visibility' },
     { label: 'Solution', value: 'Corporate film + Aerial shoot' },
@@ -186,15 +189,49 @@ export const CASE_STUDY = {
   ],
 };
 
-// Testimonial
-export const TESTIMONIAL = {
-  quote:
-    'The Next Frame understood our vision perfectly and delivered a video that exceeded our expectations.',
-  name: 'Rohit Sharma',
-  role: 'Marketing Head, Cars24',
-  avatar: '/assets/profile.jpg',
-  rating: 5,
-};
+// Testimonials / client reviews
+export interface TestimonialItem {
+  quote: string;
+  name: string;
+  role: string;
+  avatar: string;
+  rating: number;
+}
+
+export const TESTIMONIALS: TestimonialItem[] = [
+  {
+    quote:
+      'The Next Frame understood our vision perfectly and delivered a video that exceeded our expectations.',
+    name: 'Rohit Sharma',
+    role: 'Marketing Head, Cars24',
+    avatar: '/assets/profile.jpg',
+    rating: 5,
+  },
+  {
+    quote:
+      'Professional, creative and always on time. Our brand film generated a huge response across all our channels.',
+    name: 'Ananya Verma',
+    role: 'Brand Manager, Decathlon',
+    avatar: '/assets/profile.jpg',
+    rating: 5,
+  },
+  {
+    quote:
+      'From concept to final cut, the team made the whole process effortless. The results speak for themselves.',
+    name: 'Karan Mehta',
+    role: 'Founder, LendingPlate',
+    avatar: '/assets/profile.jpg',
+    rating: 5,
+  },
+  {
+    quote:
+      'Exceptional storytelling and production quality. They truly captured what our company stands for.',
+    name: 'Priya Nair',
+    role: 'Communications Lead, Vedanta',
+    avatar: '/assets/profile.jpg',
+    rating: 5,
+  },
+];
 
 // Stats band — 5 metrics
 export const STATS: StatItem[] = [

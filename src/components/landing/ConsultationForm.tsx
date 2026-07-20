@@ -47,9 +47,18 @@ export function ConsultationForm() {
 
   const validate = (): FieldErrors => {
     const next: FieldErrors = {};
-    if (formData.name.trim().length < 2) next.name = 'Please enter your name';
-    if (formData.company.trim().length < 2)
+    const name = formData.name.trim();
+    if (name.length < 2) {
+      next.name = 'Please enter your name';
+    } else if (!/^[A-Za-z][A-Za-z\s.'-]*$/.test(name)) {
+      next.name = 'Name cannot contain numbers';
+    }
+    const company = formData.company.trim();
+    if (company.length < 2) {
       next.company = 'Please enter your company name';
+    } else if (!/[A-Za-z]/.test(company)) {
+      next.company = 'Please enter a valid company name';
+    }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim()))
       next.email = 'Please enter a valid email address';
     const digits = formData.phone.replace(/[^\d]/g, '');
@@ -70,7 +79,18 @@ export function ConsultationForm() {
 
     const validationErrors = validate();
     setErrors(validationErrors);
-    if (Object.keys(validationErrors).length > 0) return;
+    if (Object.keys(validationErrors).length > 0) {
+      // Bring the first invalid field into view so the click always has an
+      // effect even when the offending field is scrolled out of sight.
+      // Deferred so it runs after React re-renders the aria-invalid state.
+      setTimeout(() => {
+        const el =
+          document.querySelector<HTMLElement>('[aria-invalid="true"]');
+        el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el?.focus?.();
+      }, 0);
+      return;
+    }
 
     setIsSubmitting(true);
     try {
@@ -121,7 +141,7 @@ export function ConsultationForm() {
             type="text"
             aria-label="Your Name"
             value={formData.name}
-            onChange={(e) => update('name', e.target.value)}
+            onChange={(e) => update('name', e.target.value.replace(/[0-9]/g, ''))}
             className="input-underline"
             placeholder="Your Name*"
             aria-invalid={!!errors.name}

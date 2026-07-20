@@ -138,6 +138,7 @@ p { color: var(--ink-mute); }
   font-family: "Geist Mono", ui-monospace, monospace; font-weight: 500;
   transition: transform .4s var(--ease), background .3s, color .3s, border-color .3s;
   position: relative;
+  cursor: pointer;
 }
 .btn-gold { background: var(--gold); color: #111; }
 .btn-gold:hover { background: var(--gold-soft); color: #fff; }
@@ -1071,6 +1072,11 @@ p { color: var(--ink-mute); }
   font-family: "Geist Mono", monospace;
   font-weight: 500;
   transition: all .4s var(--ease);
+  cursor: pointer;
+}
+.btn-gold:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 .btn-gold:hover {
   background: var(--gold-soft);
@@ -1144,6 +1150,13 @@ select.input-underline {
   background-repeat: no-repeat;
   background-position: right 4px center;
   padding-right: 24px;
+}
+/* Native dropdown popups inherit the field's transparent background, which
+   left light option text invisible in dark mode. Give options an explicit,
+   theme-aware surface + text colour so they stay readable when opened. */
+select.input-underline option {
+  background-color: var(--bg-2);
+  color: var(--ink);
 }
 textarea.input-underline {
   border: 1px solid var(--border);

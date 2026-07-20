@@ -28,7 +28,8 @@
       "Bash(git check-ignore *)",
       "Bash(nc -zv -w 5 db.guhtwynosufqywjbzjpu.supabase.co 5432)",
       "Bash(nslookup db.guhtwynosufqywjbzjpu.supabase.co)",
-      "Bash(nc -6 -zv -w 8 db.guhtwynosufqywjbzjpu.supabase.co 5432)"
+      "Bash(nc -6 -zv -w 8 db.guhtwynosufqywjbzjpu.supabase.co 5432)",
+      "WebFetch(domain:docs.google.com)"
     ],
     "deny": [],
     "ask": []
