@@ -231,6 +231,22 @@ export const TESTIMONIALS: TestimonialItem[] = [
     avatar: '/assets/profile.jpg',
     rating: 5,
   },
+  {
+    quote:
+      'A seamless experience end to end. The team was responsive, organised and delivered ahead of schedule.',
+    name: 'Arjun Kapoor',
+    role: 'Head of Growth, Unacademy',
+    avatar: '/assets/profile.jpg',
+    rating: 5,
+  },
+  {
+    quote:
+      'Our product film looked world-class and directly boosted conversions on our landing pages. Highly recommended.',
+    name: 'Sneha Gupta',
+    role: 'Product Marketing, HP',
+    avatar: '/assets/profile.jpg',
+    rating: 5,
+  },
 ];
 
 // Stats band — 5 metrics

@@ -164,6 +164,13 @@ p { color: var(--ink-mute); }
 .logo-mark::after  { right: -3px; top: 50%; width: 6px; height: 1px; transform: translateY(-50%); }
 .logo-mark span { font-family: "Geist Mono", monospace; color: var(--gold); font-size: 12px; letter-spacing: 0.05em; }
 .logo small { color: var(--ink-mute); font-family: "Geist Mono", monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+/* Real brand assets (from /public/assets/brand). The round monogram works on
+   both themes; the horizontal wordmark swaps colour with the theme. */
+.logo .logo-icon { width: 34px; height: 34px; border-radius: 50%; display: block; flex-shrink: 0; }
+.brand-wordmark { height: 40px; width: auto; display: block; max-width: 230px; }
+.brand-wordmark--light { display: none; }
+[data-theme="light"] .brand-wordmark--dark { display: none; }
+[data-theme="light"] .brand-wordmark--light { display: block; }
 
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links > a, .nav-links > .has-mega > .mega-trigger {

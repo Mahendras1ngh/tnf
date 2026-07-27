@@ -35,9 +35,15 @@ export function Navigation() {
       <nav className='nav'>
         <div className='wrap-wide nav-inner'>
           <Link className='logo' href='/' onClick={() => setIsMobileMenuOpen(false)}>
-            <span className='logo-mark'>
-              <span>TNF</span>
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className='logo-icon'
+              src='/assets/brand/fav-icon.png'
+              alt=''
+              width={34}
+              height={34}
+              aria-hidden='true'
+            />
             <div>The Next Frame</div>
           </Link>
 

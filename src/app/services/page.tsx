@@ -5,6 +5,9 @@ export const metadata = {
   description:
     'Comprehensive video production services from concept to delivery. Branded commercials, corporate films, documentaries, and more.',
   alternates: { canonical: '/services' },
+  // "Coming Soon" placeholder — keep it out of the index until real content
+  // ships so Google doesn't treat it as a thin/soft-404 page.
+  robots: { index: false, follow: true },
 };
 
 export default function ServicesPage() {

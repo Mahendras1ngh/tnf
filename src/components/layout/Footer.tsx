@@ -10,12 +10,25 @@ export function Footer() {
       <div className='wrap'>
         <div className='footer-grid'>
           <div>
-            <div className='logo' style={{ marginBottom: '20px' }}>
-              <span className='logo-mark'>
-                <span>TNF</span>
-              </span>
-              <div>The Next Frame</div>
-            </div>
+            <Link
+              href='/'
+              aria-label='The Next Frame — home'
+              style={{ display: 'inline-block', marginBottom: '20px' }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className='brand-wordmark brand-wordmark--dark'
+                src='/assets/brand/logo-white.png'
+                alt='The Next Frame'
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className='brand-wordmark brand-wordmark--light'
+                src='/assets/brand/logo-black.png'
+                alt=''
+                aria-hidden='true'
+              />
+            </Link>
             <p className='tagline'>
               TNF captures moments beyond the lens, crafting stories that
               inspire, connect, and leave lasting impressions.
